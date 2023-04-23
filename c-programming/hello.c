@@ -1,4 +1,4 @@
-// initial C code -> says Hello World
+// initial C code -> says Hello Everyone
 
 #include <stdio.h> // preprocessor
 

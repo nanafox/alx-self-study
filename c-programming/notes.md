@@ -53,3 +53,5 @@ A simple example of this is found in [*this file*](hello.c)
 - Anytime you compile without specifying the output filename, the previous **a.out** is overwritten.
 - A much better approach would be to use `gcc -o output_filename source_file.c`
   - e.g. `gcc -o hello hello.c`
+- The process of *"gluing"* different executable code together is called **linking**
+  - The software that makes this possible is the linker
