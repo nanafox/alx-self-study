@@ -3,7 +3,8 @@
 #include <stdio.h> // preprocessor
 
 // the main function is where the program execution begin
-int main() {
+int main() 
+{
     // prints Hello World to the console
     printf("Hello Everyone!\n");
 

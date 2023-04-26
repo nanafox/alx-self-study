@@ -77,3 +77,11 @@
 
   x, y, z = 10, 20, 30  # x = 10, y = 20, z = 30
   ```
+
+C provides several other basic data types besides int and float, including:
+| keyword | description |
+|:--------:|:-----------:|
+| char | character-a single byte |
+| short| short integer |
+| long | long integer |
+| double | double-precision floating point |
