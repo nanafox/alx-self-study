@@ -3,12 +3,13 @@
 #include <stdio.h>
 
 
-int main(void) {
+int main(void) 
+{
     // just so I don't repeat myself, I will use a for loop
 
-    int i;
-    for(i = 1; i <= 3; i++) {
-        puts("Hello, my name is Maxwell!");
+    for(int i = 0; i < 5; i++) 
+    {
+        puts("Hello, my name is Darius!");
     }
 
     return 0;

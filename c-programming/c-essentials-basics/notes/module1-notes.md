@@ -1,4 +1,4 @@
-# Module 1 Notes
+# Module 1 Notes - Intro to Programming, Variables and Comments
 
 - `int main(void);` is an example of a function prototype
 
@@ -35,7 +35,7 @@
 - declared and assigned
   - e.g. `int age = 78;`
 - or declared and later used
-  
+
   ```c
   // declare the variable
   int age;

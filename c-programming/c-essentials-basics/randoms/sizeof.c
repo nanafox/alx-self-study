@@ -4,7 +4,7 @@
 
 
 int main(void) {
-    printf("Size of int: %lu bytes\n", sizeof(int));  // 4 bytes
+    printf("Size of int: %ld bytes\n", sizeof(int));  // 4 bytes
     printf("Size of float: %lu bytes\n", sizeof(float)); // 4 bytes
     printf("Size of double: %ld bytes\n", sizeof(double)); // 8 bytes
 
