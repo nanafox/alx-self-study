@@ -25,6 +25,8 @@
     - a constant
     - a string literal
     - symbols
+- a genral-purpose language
+- does not support OOP
 
 ## Uses of C
 
@@ -58,3 +60,19 @@ A simple example of this is found in [_this file_](hello.c)
 - The preliminary information needed by the compiler is included in header files
   - File with the _.h_ extension
   - usually a preprocessor. e.g. stdio.h
+
+## Advantages of C
+
+- Readability: Programs are easy to read
+- Maintanability
+- Portability: Programs work on different platforms
+  - realized by re-compiling the program (code) with different compilers for different computers
+    - Microsoft uses a different compiler, so does *nix systems
+- Reusable code or programs
+  - parts of code can be saved as a library and invoked (included) in the next project
+- A relatively small language
+  - not a lot of keywords to memorize
+- Makes it easier to jump on other languages and learn them with much relative ease
+  - e.g. C++, Java, Perl, C#
+- Allows you to control computer hardware and peripherals
+  - Sometimes C is referred to as a low-level language because of this
