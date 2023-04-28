@@ -70,6 +70,9 @@
   int x = 10;
   int y = 20;
   int z = 30
+
+  // or a one liner, like this
+  int x = 10; int y = 20; int y = 30; // these are 3 separate statements but on the same line
   ```
 
   ```python

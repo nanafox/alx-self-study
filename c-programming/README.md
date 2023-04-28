@@ -39,12 +39,62 @@
 - Text Editors, Print Spoolers
 - Assemblers
 
-## Structure of C Code
+## Structure of a C Program
 
 - Preprocessor commands
 - Functions
-- Variables
-- Statements and Expressions
+- Operators
+  - arithmetic operators
+
+  | Operator | Meaning | Example |
+  |:-------:|:---------:|:--------:|
+  | + | Addition | 2 + 3 |
+  | - | Subtraction | 50 - 25 |
+  | / | Division | 6 / 2 |
+  | * | Multiplication | 2 * 6 |
+  | % | Modulus (Remainder) | 10 % 2 |
+
+- [Idenitifiers](#facts-about-c)
+- Constants and Variables
+  - A constant is a value that never change
+    - 10, 20, 1
+  - A variable serves as a container for values
+    - values can be changed later
+    - e.g. `i = 10;`. **i** is assigned the value of **constant** 10
+- Statements
+  - a complete instruction
+  - ends with a semi-colon.
+  - example
+
+    ```c
+    int i = 45;               // an integer assignment statement
+    return 0;                // the return statement
+    printf("Hello world!"); // the print statement
+    ```
+
+- Statement Blocks
+  - contained within an opening brace `{` and a closing brace `}`
+  - the C compiler treats it as a single statement
+  - [Example](check_even.c)
+
+  ```c
+  int even_numbers = 0; // just a counter.
+  // check for even numbers in a given range and print them on the console
+  for (int i = 0; i < 10; i++) 
+  {
+      if (i % 2 == 0 && i > 0)
+      {
+          printf("%i is an even number\n", i);
+          ++even_numbers;
+      }
+  }
+  ```
+
+- Expressions
+  - a combination of expressions, variables, and operators that are used to denote compution
+  - Examples
+    - `2 + (45- 24);`
+    - `i += 15;`
 - Comments
 
 A simple example of this is found in [_this file_](hello.c)
