@@ -12,7 +12,10 @@
   - uses `%d`
 - floating-point (`float | double`)
   - contains a fractional part
+    - at least six digits of precisions
   - floating point numbers use `%f`
+  - Also known as **real numbers**
+  - the `%e` format specifier is used for scientific notation
 - very strict
 - the charactertic of a number which determines its kind, range and application is known as **type**.
 - does not allow string characters

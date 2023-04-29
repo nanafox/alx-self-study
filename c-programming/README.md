@@ -16,6 +16,7 @@
     - a keyword.
       - reserved words in C
       - e.g. **printf**, **int**, **if**, **switch**, etc.
+      - [All 32 keywords](https://www.programiz.com/c-programming/list-all-keywords-c-language)
     - an identifier
       - a name used to identify a variable, function, or any user-defined item
       - starts with A to Z, a to z or an underscore **`_`**
