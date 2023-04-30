@@ -1,30 +1,24 @@
 #include <stdio.h>
 
+/*The lower and upper case letters are 32 numbers apart.*/
+const int low_upper_interval = 32;
+
 /// @author theLazyProgrammer^_^
-/// @brief My version of C's tolower() function
-/// @param letter
+/// @brief Converts upper case to lower case
+/// @param letter The letter you are testing
 /// @return lowercase version of letter. i.e. letter + 32
 /// @note The lower and upper case letters are 32 numbers apart.
-int to_lower(char letter)
+char to_lower(char letter)
 {
     if (letter >= 65 && letter < 90)
-        return letter + 32;
+        return letter + low_upper_interval;
 }
 
-/// @brief My version of C's toupper() function
-/// @param letter
+/// @brief Coverts lower case to upper case
+/// @param letter The letter you are testing
 /// @return uppercase version of letter. i.e. letter - 32
-/// @note The lower and upper case letters are 32 numbers apart.
-int to_upper(char letter)
+char to_upper(char letter)
 {
     if (letter >= 97 && letter < 122)
-        return letter - 32;
-}
-
-
-int main(void)
-{
-    char name[] = "Maxwell";
-
-    printf("%c\n", to_upper(name[1]));
+        return letter - low_upper_interval;
 }

@@ -18,11 +18,3 @@ void check_case(char letter)
         printf("%c is not a recognized alphabet.\n", letter);
 }
 
-int main(void)
-{
-    char letter;
-    printf("Enter a letter: ");
-    scanf("%c", &letter);
-    // check case
-    check_case(letter);
-}
