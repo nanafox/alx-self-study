@@ -14,7 +14,7 @@ int main(void)
 
     // convert lower case
     printf("\nOutput: ");
-    for (int letter = 0; letter < strlen(word_or_sentence); letter++)
+    for (int letter = 0, length = strlen(word_or_sentence); letter < length; letter++)
     {
         if (islower(word_or_sentence[letter]))
             printf("%c", to_upper(word_or_sentence[letter]));
