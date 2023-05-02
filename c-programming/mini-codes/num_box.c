@@ -11,8 +11,10 @@ int main()
     return 0;
 }
 
-/// @brief Prints a pattern with the number
-/// @param n A number
+/**
+ * @brief Prints a pattern with the number
+ * @param n A number
+ */
 void print_pattern(int n)
 {
     int len = n * 2 - 1; // calculate length of the pattern
