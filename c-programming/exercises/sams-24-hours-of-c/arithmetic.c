@@ -13,7 +13,7 @@ int main(void)
 
     printf("Values: a is %.1f, b is %.1f\n\n", a, b);
     printf("Result of a += b (a = a + b): %.1f\n", a += b);
-    
+
     // ! reset to original value
     a = reset_a();
     printf("Result of a *= b (a = a * b): %.1f\n", a *= b);
@@ -29,7 +29,7 @@ int main(void)
     // ! reset to original value - the modulus operator works only on integer values
     // ! Using ints and different variables to accomodate % rule
     int c = reset_a(), d = 3;
-    
+
     // ! print statement still uses a and b though...
     printf("Result of a %%= b (a = a %% b): %d\n", c %= d);
 
@@ -45,11 +45,24 @@ int main(void)
     post_result = d--;
     printf("Before b--: %i. After: %d\n", post_result, d);
 
-    /* 
+    /*
         ? Observations
         * the pre-increment and pre-decrement operators add 1 before yielding the value
         * the post-increment and post-decrement assigns the value before adding 1
         * hence the reason why the start and finish values of the pre-'s are always the same
         * the same is not true for the post-'s.
     */
+
+    // Relational Operators
+    int x = 10, y = 5;
+    printf("\nRelational operators: x = %i, y = %i\n", x, y);
+    // which is greater?
+    printf("Q1. Is 10 > 5?\nResult: ");
+    (x > y) ? printf("Yes, %i is greater\n", x) : printf("No, %i is greater\n", y);
+    // which is lesser?
+    printf("\nQ2. Is 10 < 5?\nResult: ");
+    (x < y) ? printf("Yes, %i is lesser\n", x) : printf("No, %i is lesser\n", y);
+    // are they equal?
+    printf("\nQ3. Is 10 == 5?\nResult: ");
+    (x == y) ? printf("Yes, %i and %i are equal\n", x, y) : printf("No, %i and %i are not equal\n", x, y);
 }

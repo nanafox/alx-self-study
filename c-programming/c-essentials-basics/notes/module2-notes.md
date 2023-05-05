@@ -62,11 +62,15 @@
 
 ### The Type Cast Operator
 
-- Has the effect of converting one data to another.
+- Has the effect of converting one data to another, temporarily.
 - a unary operator
 - The conversion *change* is not permanent
+  - it does not change the operand itself
 - has precedence over arithmentic operators, except the plus(+) and minus(-)
 unary operators
+- Here is the format. *(data-type-to-case) constant|expression*
+  - e.g. To convert **i** of type **int** to **float**, you do **(float) i;**
+  - ⚠ be careful not to do this instead, **float(int)**
 - [Example](../../exercises/programming-in-c/type-cast.c)
 
   ```c
@@ -95,7 +99,8 @@ unary operators
 ### The Assignment Operator
 
 - right-to-left operator
-- the value of the right is stored in the container on the left. `a = 5;`
+- The value of the right-side operand is assigned to the operand on the left side.
+  - the value of the right is stored in the container on the left. `a = 5;`
 - 5 is stored in `a`, so anytime it is referenced, the value is returned
 
 ### The Arithmetic Assignment Operator
@@ -103,9 +108,51 @@ unary operators
 | Operator | Description | Example | Data types accepted |
 |:--------|:----------:|:--------:|:---------:|
 | += | Addition Assignment Operator |a = a + b; => a += b; | int, float, double, char, etc. |
-| -= | Subtraction Assignment Operator | a = a - b; => a -= b; | nt, float, double, char, etc. | |
+| -= | Subtraction Assignment Operator | a = a - b; => a -= b; | nt, float, double, char, etc. |
 | *= | Multiplication Assignment Operator | a = a * b; => a *= b; | int float, double |
 | /= | Division Assignment Operator | a = a / b; => a /= b; | int, float, double |
 | %= | Modulus Assignment Operator | a = a % b; => a %= b; | Requires integral values |
 
 - Check out this [file](../../exercises/sams-24-hours-of-c/arithmetic.c)
+for some implementations of the arithmetic assignment operators.
+
+### The Relational Operators
+
+- Has the least precedence amongst all other arithmetic operators.
+- All arithmetics on both left or right are evaluated before a relational operation
+occur.
+  - Of course, you could parentheses to override this default
+- Produces a result of either 0 (false) or 1 (true)
+
+| Operator | Description | Note|
+|:---------:|:-------:|:-------:|
+| == | Equal to | Low precedence |
+| != | Not equal to | Low precendence |
+| > | Greater than | Has higher precedence over == and != |
+| < | Less than | Has higher precedence over == and != |
+| >= | Greater than or equal to | Has higher precedence over == and != |
+| <= | Less than or equal to | Has higher precedence over == and != |
+
+```c
+// checking whether 10 is greater than 5.
+printf("%d\n", 10 > 5); // result is 1(true) because 10 is in fact, greater than 5.
+
+// Another example, this will be false(0)
+printf("%d\n", 5 > 10); // 5 is not greater than 5.
+
+// checking equality
+printf("%d\n", 10 == 10); // similar to asking if 10 is equal to 10. Of course.
+
+// checking inequality
+printf("%d\n", 10 != 5); // indeed, 10 and 5 are not the same.
+```
+
+```c
+// here's a quick ternary operation to check which number is greater
+int a = 10, b = 5;
+(a > b) ? printf("Yes, %i is greater\n", a) : printf("No, %i is greater\n", b);
+
+// The above code should display, "Yes, 10 is greater". The reason is quite obvious.
+```
+
+- Want to see more examples? Check [here](../../exercises/sams-24-hours-of-c/arithmetic.c)
