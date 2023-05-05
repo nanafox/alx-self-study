@@ -91,3 +91,21 @@ unary operators
       float type_cast_average = (score1 + score2 + score3) / (float)num_of_scores;
       printf("Type Cast Average: %.2f\n", type_cast_average);
   ```
+
+### The Assignment Operator
+
+- right-to-left operator
+- the value of the right is stored in the container on the left. `a = 5;`
+- 5 is stored in `a`, so anytime it is referenced, the value is returned
+
+### The Arithmetic Assignment Operator
+
+| Operator | Description | Example | Data types accepted |
+|:--------|:----------:|:--------:|:---------:|
+| += | Addition Assignment Operator |a = a + b; => a += b; | int, float, double, char, etc. |
+| -= | Subtraction Assignment Operator | a = a - b; => a -= b; | nt, float, double, char, etc. | |
+| *= | Multiplication Assignment Operator | a = a * b; => a *= b; | int float, double |
+| /= | Division Assignment Operator | a = a / b; => a /= b; | int, float, double |
+| %= | Modulus Assignment Operator | a = a % b; => a %= b; | Requires integral values |
+
+- Check out this [file](../../exercises/sams-24-hours-of-c/arithmetic.c)
