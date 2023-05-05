@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-inline short reset_a(void)
+short reset_a(void)
 {
     return 10;
 }
