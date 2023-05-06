@@ -65,4 +65,6 @@ int main(void)
     // are they equal?
     printf("\nQ3. Is 10 == 5?\nResult: ");
     (x == y) ? printf("Yes, %i and %i are equal\n", x, y) : printf("No, %i and %i are not equal\n", x, y);
+
+    printf("%d\n", 25 % 13);
 }

@@ -51,7 +51,7 @@
   |:-------:|:---------:|:--------:|
   | + | Addition | 2 + 3 |
   | - | Subtraction | 50 - 25 |
-  | / | Division | 6 / 2 |
+  | / | Division | 6 (Dividend) / 2 (Divisor) |
   | * | Multiplication | 2 * 6 |
   | % | Modulus (Remainder) | 10 % 2 |
 

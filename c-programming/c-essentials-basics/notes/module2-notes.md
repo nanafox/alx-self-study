@@ -4,14 +4,15 @@
 
 ## Data Types
 
-### Double
+### Floating-point numbers (float | double)
 
-- Twice the size of a float(which is normally 4 bytes.)
+- Any number with a fractional part is considered a **float**
+- **double** the size of a float(which is normally 4 bytes.)
   - this makes **double** 8 bytes (64 bits)
 - All floating point constants are taken as a **double** by the C compiler
   - **floats** can be forced by appending `f` to the number. e.g. `3.14f`
 - The format characters include `%e`, `f`, or `%g`
-- `printf` always rounds floats and doulbes to six decimal place by default
+- `printf` always rounds floats and doulbes to **six decimal** place by default
 
 ### The Single Character Type (char)
 
@@ -56,7 +57,12 @@
 
 ### Notes of Scientific Notation Expressions
 
+- Example: Speed of light of is 300,000,000m/s
+  - This can be can expressed as (3 * 10^8).
+  - *three times ten to the eigth power*
+  - expressed in C as follows: `3E8`
 - The **base value (mantissa)** can be an integer
+  - the value before the `E` or `e`
   - can be a double or float
 - The Exponent value **must** be in integer
 
@@ -156,3 +162,21 @@ int a = 10, b = 5;
 ```
 
 - Want to see more examples? Check [here](../../exercises/sams-24-hours-of-c/arithmetic.c)
+
+### The Postfix and prefix incrementation/decrementation Operators
+
+- Has precedence over other operators, except - and + unary operators.
+  - it's a unary operator itself.
+- Prefix Effect
+  - Increment/decrement the variable by one and return its value already increased/reduced.
+  - **pre- because the variable is modified first and then its value is used**
+  - Examples: `--a`, `++a`
+  - Check this [Prefix Incrementation Debugging code file](../randoms/prefix_effect_debug.c).Use the debugging feature to help you step through the code so you could examine the behavior.
+  ![Where to add breakpoint](../../screenshots/prefix_effect_debug.png)
+- Postfix Effect
+  - **Return the original (unchanged) variable's value** and then increment/decrement the variable by one.
+  - **post- because the variable's value is used and then modified.**
+  - Examples: `a--`, `a++`
+  - Check this [Postfix Incrementation Debugging code file](../randoms/postfix_effect_debug.c).
+  Use the debugging feature to help you step through the code so you could examine the behavior.
+  ![Where to add breakpoint](../../screenshots/postfix_effect_debug.png)

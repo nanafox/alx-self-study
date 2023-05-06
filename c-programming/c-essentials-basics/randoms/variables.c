@@ -28,6 +28,12 @@ int main(void) {
     // can be chained at declaration
     int x, y, z;
 
+    // check equality between int and float numbers
+    int i = 45;
+    float f = 45.0;
+
+    printf("\n");
+    (i == f) ? printf("Yes, %i == %f\n", i, f) : printf("No, %i != %f\n", i, f);
 
     return 0;
 }
