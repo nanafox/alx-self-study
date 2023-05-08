@@ -17,17 +17,66 @@
 ### The Single Character Type (char)
 
 - enclosed within a pair of single quotes. e.g. `'a'`, `'\n'`, `';'`
+  - you can't have an empty char value. For example `char grade=''` is wrong.
+  - **it must contain something**, even if it's a single space.
 - uses the `%c` format specifier. e.g. `printf("%c", 'A');`
+- corresponds to a unique number in the [ASCII code table](https://asciitable.com)
+  - example `A` is **65**, `a` is **97**.
+- some of the characters are simply **white space**
+  - an example is the code use to mark the end of lines inside text files
+    - ETX -> end of text
+- accepts the **positive integer** version of the character you are trying to represent
+  - for example, `char letter = 65;` is the same as `letter = 'A';`
+  - as much as possible, use the actual character over the corresponding integer value.
+  - accepted range is up to 255
+  
+    Why? Because it is easier to read, and you know it.
+    Also it ensures that your program works on other system that does not use the ASCII
+    mapping table. For example, the **EBCDIC** *(Extended Binary Code Decimal Interchange Code)*
+- Here's how to code the single quote itself. `char literal = '\'';`
+  - the character is escaped with the `\` character.
+- What if you want to escape the escape character?
+  - Turns out you'd have to *escape* it with itself. Here' how
+    - `char literal = '\\'`.
+    - the first `\` is the escape character, the second `\` gets
+    assigned.
+- Here's a few more escape characters
+
+  | Character | Description | Info |
+  |:---------:|:-----------:|:----:|
+  | \n | Newline Character / Line Feed (LF) | Causes the next characters to be printed on a new line |
+  | \r | Carriage Return (CR) | Returns to the beginning of the line |
+  | \a | Alarm or Bell (BEL) | Causes a short beep when used |
+  | \0 | NULL | Represents the end of line of text |
+
+- The distance (space) between the lower and upper case letters is 32.
+  - amazingly the *space* character in the ASCII table is also of integer number 32.
+  - here's a cool way to use it. [code file](../randoms/char-arithmetic.c)
+
+  ```c
+  // declare the variable
+  char literal; 
+  // initialize it with a value
+  literal = 'A';
+  // using the space notion, set this literal to it's lower version
+  literal += 32; // this causes it to become letter 'a'
+  // now let's revert it to upper case.
+  literal -= ' '; // see how this uses the space character? Yeah, it's value is 32.
+  
+  ```
+
+  ![expected output](../../screenshots/char-arithmetics-output.png)
 
 ### The Boolean Data Type (_Bool)
 
 - represents a True(1) or False(0)
 - adding the `<stdbool.h>` header file makes it easier to work with bools
-- check [this file](../../new_main_style.c) for a sample use case of both scenarios
+- check [this file](../../exercises/programming-in-c/variables-data-types.c) for a sample use case of both scenarios
 
 ### Tpe Specifiers: long, long long, short, unsigned, short and signed
 
-- Check this [file](../randoms/sizeof.c) to for sizes.
+- Check this [code file](../randoms/sizeof.c) to examine the code for getting the size
+of each data type.
 - **long**
   - The long doubles the current space of a data type.
     - **long int -> 8 bytes**
@@ -180,3 +229,8 @@ int a = 10, b = 5;
   - Check this [Postfix Incrementation Debugging code file](../randoms/postfix_effect_debug.c).
   Use the debugging feature to help you step through the code so you could examine the behavior.
   ![Where to add breakpoint](../../screenshots/postfix_effect_debug.png)
+
+### Operator Priority
+
+Below is the order of precedence for the operators, from highest to lowest
+![Priority of Operators](../../screenshots/operator-priority-table.png)
