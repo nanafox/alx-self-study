@@ -7,3 +7,5 @@
 - [Module 1.6 - Program Overview - Part 2](1.6-program-overview-2.md)
 - [Module 1.7 - Karibu Lesson on Core Values](1.7-karibu-core-values.md)
 - [Module 1.8 - Community Guideline and Code of Conduct](1.8-code-of-conduct.md)
+- [Module 1.9 - Karibu Lesson on Africa in 2035](1.9-karibu-lessons-2035.md)
+- [Module 1.10 - How to do Peer Review](1.10-how-to-peer-review.md)
