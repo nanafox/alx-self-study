@@ -1,5 +1,21 @@
 # Flow Control (loops), int and float types, Typecasting, and Computer logic
 
+## The Two General Types of Loops
+
+### Counter-controlled Looping
+
+- The number of iterations is known before hand
+- Dependent on some kind of counter value
+- The counter may be increasing or decreasing
+- The `for` loop is a natural choice this kind of loop
+
+## Condition- or Sentinel-controlled Looping
+
+- the number of iteration is dependent on a condition to be true
+- the actual number of iterations is NOT known before hand
+- a sentinel is a value that must attain a certain state before the loop completes
+- The `do...while()` and `while()...` excel in this area
+
 ## Working with Loops
 
 - Looping is a programming technique used to perform the set of statements over
