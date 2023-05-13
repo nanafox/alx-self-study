@@ -453,6 +453,6 @@ The above code will keep *going to* the `shared_label` label identifier and keep
 
 - **DON'T Use it, really.**
 
-According the creator of C++, Bjarne Stroustrup **"The fact that 'goto' can do anything is exactly why we don't use it."**
+  According the creator of C++, Bjarne Stroustrup **"The fact that 'goto' can do anything is exactly why we don't use it."**
 
-There are other mechanisms to implement this better in structured programming. It has its good sides though, research as much as possible before using if need be.
+  There are other mechanisms to implement this better in structured programming. It has its good sides though, research as much as possible before using if need be.
