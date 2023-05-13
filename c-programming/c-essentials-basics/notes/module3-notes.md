@@ -1,5 +1,71 @@
 # Flow Control (loops), int and float types, Typecasting, and Computer logic
 
+**Note:** **The flow control statements of a language specify the order in computations are performed**
+
+## Decision Making
+
+- Execution flow is determined by the result of expression evaluation.
+- The conditional expressions are enclosed in parentheses. e.g. `if (hungry) ...`
+- the results of the expressions evaluates to `true` or `false`.
+
+## The if()... else... statements
+
+Used for controlling the flow of programs based on the truthfulness of a condition.
+
+Syntax
+
+```c
+// The simple statement (checks only true cases)
+if (expression)
+    statements // if true
+```
+
+[Example](../../exercises/sams-24-hours-of-c/odd-even.c)
+
+```c
+// Used to check true and false conditions 
+if (expression)
+    statements
+else
+    statements // if false
+```
+
+```c
+// if()... else if() ... else ...
+if (expression)
+    statements
+else if (expression)
+    statements
+.
+.
+else
+    statements
+```
+
+## The switch()... statement
+
+Useful when a single result can have multiple values
+
+Syntax
+
+```c
+switch (expression)
+{
+    case constant-expression1:
+        statement1;
+        break;
+    case constant-expression2:
+        statement2;
+        break;
+    .
+    .
+    default:
+        statement-default;
+}
+```
+
+Check this [code file](../randoms/switch-if.c) for example.
+
 ## The Two General Types of Loops
 
 ### Counter-controlled Looping
@@ -242,6 +308,8 @@ for (i = 0; i < 6; i++)
 
 🐞 Also, it can be the hardest thing to debug if you mistakenly code it as a `null statement`
 
+💡 Be sure to have a condition that will eventually cause the condition to be false. Also use the `break` statement to *shorten* to flow of the loop and return control to other parts of the code. Here's [an example](../../exercises/sams-24-hours-of-c/break.c) of *breaking* the loop.
+
 ⚠️ Be cautious when coding loops.
 
 ### Examples of infinite loops with the while loop
@@ -299,3 +367,92 @@ for (; ;); // ⚠️ Null Statement
 }
 
 ```
+
+## The goto statement
+
+📝 Not recommended because it is likely to make C programs unreliable and harder to debug. The use of the goto statement can easily lead to *spaghetti* code.
+
+Syntax
+
+```c
+label_name:
+    statement1;
+    statement2;
+    .
+    .
+    .
+    goto label_name;
+```
+
+- an immediate and unconditional transfer of program execution to specified label  within a function block
+- has two parts
+  - the `label_identifier:`
+  - the `goto label_identifier;`
+- check this [file](../randoms/goto.c) for a simple use case.
+- not really recommended since the days of *structured programming*
+- can only jump to a label within the same function (scope)
+- it sort of works like the while loop
+- proves very useful in deeply nested `if... else...` statements or deeply nested loops
+- it could result in an infinite loop as well
+
+```c
+// An example of a goto infinite loop
+
+shared_label: // this label is meant to be shared
+    printf("This is is a shared goto label.\n");
+
+// Specific to the countdown
+start_count: // label identifier
+
+    if (i < 10) // conditional
+    {
+        printf("i is now %d -> using goto\n", i);
+        i++;
+
+        goto start_count; // goto statement to change flow of execution.
+    }
+    else
+        goto shared_label;
+```
+
+The above code will keep *going to* the `shared_label` label identifier and keep executing the `printf` statement.
+
+### How do you solve this?
+
+- **Placement matters.**
+
+  The goto statement uses a top-down execution flow.
+
+  In the above code, after the `start_count` label is done executing, `i` is **10**. So the `if ...` always evaluates to false and the `else ...` statement is executed. Hence the reason why the infinite loop occur.
+
+  Take a look at this code, same `if ... else ...` but the `shared_label` is moved down
+
+  ```c
+  // fixing the infinite loop
+
+  start_count: // label identifier
+
+      if (i < 10) // conditional
+      {
+          printf("i is now %d -> using goto\n", i);
+          i++;
+
+          goto start_count; // goto statement to change flow of execution.
+      }
+      else
+          goto shared_label;
+
+  // 👀 see where it is now? Great!
+  shared_label: // this label is meant to be shared
+      printf("This is is a shared goto label.\n");
+  ```
+
+- **Use functions**
+
+  They are executed all the time, it's better to put them in separate them functions to control the flow. [See example here](../randoms/goto_improved.c)
+
+- **DON'T Use it, really.**
+
+According the creator of C++, Bjarne Stroustrup **"The fact that 'goto' can do anything is exactly why we don't use it."**
+
+There are other mechanisms to implement this better in structured programming. It has its good sides though, research as much as possible before using if need be.
