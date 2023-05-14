@@ -2,14 +2,13 @@
 #include <stdlib.h>
 #include <math.h>
 
-void get_ddn_ip_address(
-    unsigned oct1, unsigned oct2,
-    unsigned oct3, unsigned oct4);
+void get_ddn_ip_address(unsigned oct1, unsigned oct2, unsigned oct3, unsigned oct4);
 
 /*
-    TODO: Write a program that asks the user to provide four numbers, and then checks if these numbers are more than or equal to 0, and less than or equal to 255.
+Task:
+    Write a program that asks the user to provide four numbers, and then checks if these numbers are more than or equal to 0, and less than or equal to 255.
 
-    TODO: Next, the program should write both forms of the IP address: the human-readable one and the 32-bit-number one.
+    Next, the program should write both forms of the IP address: the human-readable one and the 32-bit-number one.
 */
 
 int main()
@@ -26,24 +25,22 @@ int main()
 }
 
 /*!
- * @brief Prints the corresponding dotted decimal of an IP address 
+ * @brief Prints the corresponding dotted decimal of an IP address
  * @param oct1 First octet of IPv4 address
  * @param oct2 Second octet of IPv4 address
  * @param oct3 Third octet of IPv4 address
  * @param oct4 Fourth octet of IPv4 address
  * @note as a bonus, you get the IP address' 32-bit value as well
  */
-void get_ddn_ip_address(
-    unsigned oct1, unsigned oct2,
-    unsigned oct3, unsigned oct4)
+void get_ddn_ip_address(unsigned oct1, unsigned oct2, unsigned oct3, unsigned oct4)
 {
     unsigned _32_bit_version;
     unsigned octet_size = 256;
 
-    if (!(oct1 >= 0 && oct1 <= 255) || // check first octet
+    if (!(oct1 >= 0 && oct1 <= 255) ||   // check first octet
         (!(oct2 >= 0 && oct2 <= 255)) || // check second octet
         (!(oct3 >= 0 && oct3 <= 255)) || // check third octet
-        (!(oct4 >= 0 && oct4 <= 255))) // check fourth octet
+        (!(oct4 >= 0 && oct4 <= 255)))   // check fourth octet
     {
         printf("Invalid IP address.\n");
         exit(1); // exit with non-zero code
