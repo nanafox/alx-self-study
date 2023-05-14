@@ -16,9 +16,10 @@ int main()
 {
     /* your code */
     unsigned oct1, oct2, oct3, oct4;
-    printf("IP Address: \n");
-    scanf("%u\n%u\n%u\n%u", &oct1, &oct2, &oct3, &oct4);
+    printf("IP Address: ");
+    scanf("%u.%u.%u.%u", &oct1, &oct2, &oct3, &oct4); // get IP address
 
+    // get DDN IP address
     get_ddn_ip_address(oct1, oct2, oct3, oct4);
 
     return 0;
