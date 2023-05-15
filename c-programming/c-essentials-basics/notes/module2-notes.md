@@ -79,18 +79,18 @@
 of each data type.
 - **long**
   - The long doubles the current space of a data type.
-    - **long int -> 8 bytes**
+    - **long long int -> 8 bytes**
+      - `long int` is known to be synonymous (in size), hence, `long long int` is used instead
     - **long double -> 16 bytes**
   - uses the formact specifier `%li`, `%lx`, `%lo`, `%ld`
-  - e.g. `long int factotrial;`
+  - e.g. `long long int factotrial;`
   - There's no `long float`
     - Reason I believe it is the case is because, **double** handles that and there's
-    no need to use the long for it. If a bigger space is needed for **floats**, **double** is
-    used. In the same way, if the space provided by **double** (8 bytes) is not enough, then
-    it can be further *doubled* with **long**, given it **16 bytes**.
+    no need to use the `long` for it. If a bigger space is needed for **floats**, **double** is used. In the same way, if the space provided by **double** (8 bytes) is not enough, then it can be further *doubled* with **long**, giving it **16 bytes**.
 - **short**
   - guarantees a space of no less than 2 bytes (16 bits)
   - uses the formact specifier `%hi`, `%hx`, `%ho`, `%hd`
+  - cannot be used with floats
 - **unsigned**
   - used when the interger is to contain **only positive numbers**
   - gives the full space to the positive integers.
@@ -116,6 +116,10 @@ of each data type.
 - The Exponent value **must** be in integer
 
 ### The Type Cast Operator
+
+- the opposite of implicit *(automatic)* type conversion
+
+  ![implicit type conversion rules](../../screenshots/implicit-conversion-rules.png)
 
 - Has the effect of converting one data to another, temporarily.
 - a unary operator

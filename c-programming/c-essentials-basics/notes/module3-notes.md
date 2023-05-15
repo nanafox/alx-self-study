@@ -1,5 +1,7 @@
 # Flow Control (loops), int and float types, Typecasting, and Computer logic
 
+**INFO:** **For more notes on data types, check out [this note](module2-notes.md#data-types)**
+
 **Note:** **The flow control statements of a language specify the order in computations are performed**
 
 ## Decision Making
