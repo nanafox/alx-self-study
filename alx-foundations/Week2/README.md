@@ -3,3 +3,6 @@
 - [2.2 - The Room Fellowship](2.2-the-room-fellowship.md)
 - [2.3 - The Daily 3: Movement](2.3-the-daily-3-movement.md)
 - [2.4 - Purpose: Part 1](2.4-purpose-part-1.md)
+- [2.5 - Tech Foundations](2.5-tech-foundations.md)
+- [2.6 - Secret Sauce - Part 1](2.6-secret-source-part1.md)
+- [2.7 - Knowing Yourself](2.7-knowing-yourself.md)
