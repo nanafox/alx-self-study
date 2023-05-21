@@ -14,7 +14,6 @@
  *
  *    When a number is out of the given range (1<=x<6),
  *    the program should print nothing.
- *
  */
 
 /**
@@ -30,25 +29,15 @@ int main(void)
 	int convert_num = num; /*type conversion from float to int*/
 
 	if (num == 1)
-	{
 		puts("Very bad.");
-	}
 	else if (num == 2)
-	{
 		puts("Bad");
-	}
 	else if (num == 3)
-	{
 		puts("Neutral");
-	}
 	else if (num == 4)
-	{
 		puts("Good");
-	}
 	else if (num == 5)
-	{
 		puts("Very good");
-	}
 	return (0);
 }
 
