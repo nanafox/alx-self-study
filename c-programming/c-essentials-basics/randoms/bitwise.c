@@ -16,7 +16,7 @@ int main(void)
 	printf("ANDing: x & y = %d\n", z);
 
 	z = x | y; /*00001010 -> Expecting 10*/
-	printf("OR: x & y = %d\n", z);
+	printf("OR: x | y = %d\n", z);
 	
     return (0);
 }

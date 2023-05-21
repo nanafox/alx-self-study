@@ -5,7 +5,7 @@ int is_leap_year(int year);
 int day_of_year(int day, int month, int year);
 void validate_day_and_month(int day, int month);
 
-int days_in_months[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+int days_in_months[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 /**
  * main - takes care of running the program
