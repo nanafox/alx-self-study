@@ -238,3 +238,26 @@ int a = 10, b = 5;
 
 Below is the order of precedence for the operators, from highest to lowest
 ![Priority of Operators](../../screenshots/operator-priority-table.png)
+
+## Bitwise Operators
+
+- Note: arguments of these operators must be integers
+- unlike the logical operators, this penetrates into the bit level of its argument.
+
+| Operator | Description | Notes / Examples |
+|:--------:|:-----------:|:------:|
+| & | The bitwise AND operator | requires **exactly two** “1s” to provide “1” as the result |
+| &vert; | The bitwise AND operator | requires **at least one** “1” to provide “1” as the result |
+| ^ | The bitwise exclusive OR (XOR) operator | requires only one “1” bit to provide “1” as the result NOT both |
+| ~ | The bitwise complement operator | **(unary)** requires “0” to provide “1” as the result |
+| >> | The right-shift operator |
+| << | The left-shift operator |
+
+### Few bitwise operation code snippets
+
+- [Check for even and odd numbers](../../exercises/programming-in-c/even_odd_bitwise.c)
+- [Exchange value without extra memory allocation](../../exercises/programming-in-c/exchange-values-xor.c)
+- [Manipulating bits (Flags and mask)](../../mini-codes/bitmask-check.c)
+- [Checking nibbles](../labs/3.1.5.12-lab-single-bits.c)
+
+![bitwise operator example](../../screenshots/bitwise-operators.png)
