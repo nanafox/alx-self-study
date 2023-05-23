@@ -249,8 +249,8 @@ Below is the order of precedence for the operators, from highest to lowest
 | & | The bitwise AND operator | requires **exactly two** “1s” to provide “1” as the result |
 | &vert; | The bitwise AND operator | requires **at least one** “1” to provide “1” as the result |
 | ^ | The bitwise exclusive OR (XOR) operator | requires only one “1” bit to provide “1” as the result NOT both |
-| ~ | The bitwise complement operator | **(unary)** requires “0” to provide “1” as the result |
-| >> | The right-shift operator |
+| ~ | The bitwise complement operator | **(unary)** flips the bits of its operand. 0 becomes 1, 1 becomes 0 |
+| >> | The right-shift operator | bits are shifted to the left with the number of places specified. Similar to multiplying the value shifted by two. |
 | << | The left-shift operator |
 
 ### Few bitwise operation code snippets
