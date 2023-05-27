@@ -6,3 +6,5 @@
 - [3.6 - Problem Definition](3.6-problem-definition.md)
 - [3.7 - Problem Solving Approaches](3.7-problem-solving-approaches.md)
 - [3.8 - Asking the Right Questions](3.8-asking-the-right-questions.md)
+- [3.9 - Web Research 1](3.9-web-research1.md)
+- [3.10 - Web Research 2](3.10-web-research2.md)
