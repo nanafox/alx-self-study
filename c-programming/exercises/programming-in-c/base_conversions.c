@@ -10,12 +10,12 @@ void to_base2(unsigned int num)
 	int binary[32];
 	int index = 0;
 
-	while (num != 0)
+	do
 	{
 		binary[index] = num % 2; /*record remainder*/
 		index++;
 		num /= 2; /*get quotient*/
-	}
+	} while (num != 0);
 
 	/*print result in reverse order*/
 	for (--index; index >= 0; --index)
@@ -52,12 +52,12 @@ void to_base16(unsigned int num)
 	int hex[32];
 	int index = 0;
 
-	while (num != 0)
+	do
 	{
 		hex[index] = num % 16; /*record remainder*/
 		index++;
 		num /= 16; /*get quotient*/
-	}
+	} while (num != 0);
 
 	/*print result in reverse order*/
 	for (--index; index >= 0; --index)
@@ -80,12 +80,12 @@ void to_base8(unsigned int num)
 	int octal[32];
 	int index = 0;
 
-	while (num != 0)
+	do
 	{
 		octal[index] = num % 8; /*record remainder*/
 		index++;
 		num /= 8; /*get quotient*/
-	}
+	} while (num != 0);
 
 	/*print result in reverse order*/
 	for (--index; index >= 0; --index)
