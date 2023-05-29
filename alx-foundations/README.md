@@ -7,3 +7,5 @@ Weekly study notes will be added when available
 ## [Week 2](Week2/)
 
 ## [Week 3](Week3/)
+
+## [Week 4](Week4/)
