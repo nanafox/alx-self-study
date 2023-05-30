@@ -16,6 +16,8 @@
  odd_numbers[7]; /*the behavior of this code is undefined as the index is greater than the total number of elements in the array*/
  ```
 
+- All elements in an array **must** be of the same data type
+
 ### Code snippets on Arrays
 
 - [A rate counter](../../mini-codes/ratings-counter.c)
