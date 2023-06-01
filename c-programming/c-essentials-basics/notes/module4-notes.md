@@ -22,3 +22,10 @@
 
 - [A rate counter](../../mini-codes/ratings-counter.c)
 - [Using for loop to store and print numbers](../randoms/array-for.c)
+
+## Working with Pointers
+
+- a variable that contains the memory address of another variable.
+- The **address (left value)** of a pointer is used to refer to itself.
+- The **content (right value)** is the address of another variable
+- both left and right values are addresses
