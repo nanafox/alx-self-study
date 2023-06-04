@@ -27,5 +27,12 @@
 
 - a variable that contains the memory address of another variable.
 - The **address (left value)** of a pointer is used to refer to itself.
-- The **content (right value)** is the address of another variable
+  - accessed with *address-of* operator. `&ptr_num`
+- The **content (right value)** is the *address* of another variable
+  - accessed with the variable name **only**. `ptr_num`
 - both left and right values are addresses
+- to get the value pointer *points* to, use the *indirection* or *dereference* operator
+  - e.g. `*ptr_num` would return the value of the variable pointed to.
+- check [this file](../../exercises/sams-24-hours-of-c/pointers.c) to get an idea.
+- ***null pointers*** are pointers with their right value set to 0
+  - they can **never** point to valid data
