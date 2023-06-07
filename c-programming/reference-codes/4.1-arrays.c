@@ -13,16 +13,16 @@ int main()
         printf("%d ", ages[i]);
     }
     printf("\n");
-    
+
     //That is the ideal way to initialize an array when hard coded.
     //often these values come from the user or a file
     //Then, you must hardcode the size like int ages[6];.
-    //Either way it is statically sized. 
+    //Either way it is statically sized.
     //First just gets sized by compiler.
 
     size = 20;
     int grades[size];
-    
+
     //get from user input or assign manually.
     grades[0] = 10;
     grades[1] = 30;
@@ -50,7 +50,7 @@ int main()
 
     int rows = 3;
     int const columns = 4;
-    int studentGrades[][columns] = {
+    int studentGrades[][4] = {
                             {1, 3, 4, 6},
                             {3, 2, 4, 5},
                             {32, 2, 4, 9}
@@ -65,7 +65,7 @@ int main()
         }
         printf("\n");
     }
-    
+
     //Arrays don't have to contain ints, just easiest to start with
     //All data does need to be same type, though
 
