@@ -25,6 +25,8 @@
 
 ## Working with Pointers
 
+> ...pointers are like signposts. They don’t say anything about the place itself, but they show clearly how to reach it.
+
 - a variable that contains the memory address of another variable.
 - The **address (left value)** of a pointer is used to refer to itself.
   - accessed with *address-of* operator. `&ptr_num`
@@ -36,3 +38,10 @@
 - check [this file](../../exercises/sams-24-hours-of-c/pointers.c) to get an idea.
 - ***null pointers*** are pointers with their right value set to 0
   - they can **never** point to valid data
+  - the recommended way is to use the `NULL` which is actually 0 but can't be modified
+    - it is a macro
+    - requires the `stdio.h` or `stddef.h` headers
+    - e.g. `int *p = NULL;`
+    - dereferencing NULL pointers is forbidden and causes runtime errors and stops the flow of the program
+- the **value** of the variable is what the variable stores;
+- the **address** of the variable is information about where this variable is placed (where it *lives*).
