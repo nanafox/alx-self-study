@@ -11,7 +11,7 @@
 */
 unsigned long long len(const char *string)
 {
-	int size = 0;
+	unsigned long long size = 0;
 
 	for (int i = 0; string[i] != '\0'; i++)
 		size++;
