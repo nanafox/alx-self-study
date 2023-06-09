@@ -3,7 +3,7 @@
  *
  * Description: Counts the number of characters in a
   * given string and returns the value.
-  * Similar to the strlen function in C.
+  * Similar to the strlen() function in C, but better.
  *
  * @string: the string to check length of.
  *
