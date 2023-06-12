@@ -15,73 +15,66 @@
  */
 int main(void)
 {
-	/*get ip address*/
+	/*arrays and octet digit counters*/
 	char ip_address[16];
 	char octet1[5], oc1_digits = 0;
 	char octet2[5], oc2_digits = 0;
 	char octet3[5], oc3_digits = 0;
 	char octet4[5], oc4_digits = 0;
-	int dots = 0;
-	int invalid_ip = 0; /*check IP address validity*/
-	int count_digits = 0;
 
+	int invalid_ip = 0; /*error check*/
+	int dots = 0;		/*used to count dots, which separates octets*/
+
+	/*get ip address*/
 	printf("IP Address: ");
 	scanf("%s", ip_address);
 
-	for (int i = 0; i < strlen(ip_address); i++)
+	/*search through IP Address and make decisions*/
+	for (int i = 0, n = strlen(ip_address); i < n; i++)
 	{
-		char c = ip_address[i]; /*char to search*/
+		char c = ip_address[i]; /*character to search for*/
 
-		/*ensure they are digits*/
+		/*confirm each character is a digit or a period*/
 		if (c >= '0' && c <= '9' || c == '.')
 		{
-			/*ensure there is no more than three dots*/
-			if (dots > 3)
-			{
-				invalid_ip = 1; /*more dots than needed*/
-				break;
-			}
-			/*split on the dots*/
+			/*count dots*/
 			if (c == '.')
-				dots++; /*count dots*/
+				dots++;
 
-			else /*append all other digits*/
+			else
 			{
-				/*ensure there is no more than 3 digits in each octet*/
-				if (oc1_digits <= 3 && oc2_digits <= 3 &&
-					oc3_digits <= 3 && oc4_digits <= 3)
+				/*ensure there is no more than 3 digits in an octet*/
+				if (oc1_digits <= 3 && oc2_digits <= 3 && oc3_digits <= 3 &&
+					oc4_digits <= 3)
 				{
 					if (dots == 0)
 					{
-						octet1[oc1_digits] = c;
+						octet1[oc1_digits] = c; /*append first octet value*/
 						oc1_digits++;
 					}
+
 					else if (dots == 1)
 					{
-						/*append second octet value*/
-						octet2[oc2_digits] = c;
+						octet2[oc2_digits] = c; /*append second octet value*/
 						oc2_digits++;
 					}
 
 					else if (dots == 2)
 					{
-						/*append third octet value*/
-						octet3[oc3_digits] = c;
+						octet3[oc3_digits] = c; /*append third octet value*/
 						oc3_digits++;
 					}
 
 					else if (dots == 3)
 					{
-						/*append fourth octet value*/
-						octet4[oc4_digits] = c;
+						octet4[oc4_digits] = c; /*append fourth octet value*/
 						oc4_digits++;
 					}
 				}
 
 				else
 				{
-					/*it contains more than 3 digits in one or more octets*/
-					invalid_ip = 1;
+					invalid_ip = 1; /*more digits in an octet than expected*/
 					break;
 				}
 			}
@@ -89,24 +82,21 @@ int main(void)
 
 		else
 		{
-			invalid_ip = 1; /*contains invalid characters*/
+			invalid_ip = 1; /*contains non-digits*/
 			break;
 		}
 	}
 
-	/*handle error messages*/
-	if (invalid_ip)
-		puts("\nError: not a valid address.");
+	/*check ip validity and if more than dots than necessary were received*/
+	if (invalid_ip || dots < 3 || dots > 3)
+		puts("\nError: IP Address is invalid");
 
 	else
 	{
-		/*add terminating character*/
-		octet2[oc2_digits] = '\0';
-		octet3[oc3_digits] = '\0';
-		octet4[oc4_digits] = '\0';
-
 		/*print results*/
-		printf("\nLast 3 parts: %s.%s.%s\n", octet2, octet3, octet4);
+		printf("\nFull IP Address: %s.%s.%s.%s\n",
+			   octet1, octet2, octet3, octet4);
+		printf("Last 3 parts: %s.%s.%s\n", octet2, octet3, octet4);
 		printf("Last 2 parts: %s.%s\n", octet3, octet4);
 		printf("Last 1 part: %s\n", octet4);
 	}
