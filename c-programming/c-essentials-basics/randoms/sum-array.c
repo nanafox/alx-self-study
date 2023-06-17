@@ -7,8 +7,9 @@
 */
 int main(void)
 {
-	int size = 4; /*size of array*/
+	int const size = 4; /*size of array*/
 	int numbers[size], sum = 0, i;
+	int ages[size] = {1, 3, 5, 6};
 
 	printf("The sum of "); /*opening statement*/
 

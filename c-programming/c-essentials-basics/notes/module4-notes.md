@@ -18,10 +18,32 @@
 
 - All elements in an array **must** be of the same data type
 
+### Initializing arrays
+
+- The general syntax is `data_type array_name[size] = {elements,...}`;
+- The size of the array must be at compile time
+  - for this reason, a code like this will cause a compile time error
+
+     ```c
+     int size = 4;
+     int ages[size] = {34, 32, 12, 9};
+     ```
+
+  - instead use this
+
+     ```c
+     const int size = 4; /*modified line*/
+     int ages[size] = {34, 32, 12, 9};
+     ```
+
+- The above code works because it complies with the **static array initialization rule**
+- The `size` is known at compile time and it doesn't change later in the code. It is a **constant**
+
 ### Code snippets on Arrays
 
 - [A rate counter](../../mini-codes/ratings-counter.c)
 - [Using for loop to store and print numbers](../randoms/array-for.c)
+- There's more scattered across the folders in this repo
 
 ## Working with Pointers
 
@@ -36,7 +58,7 @@
 - to get the value pointer *points* to, use the *indirection* or *dereference* operator
   - e.g. `*ptr_num` would return the value of the variable pointed to.
 - check [this file](../../exercises/sams-24-hours-of-c/pointers.c) to get an idea.
-- ***null pointers*** are pointers with their right value set to 0
+- ***null pointers*** are pointers with their right value (content) set to 0
   - they can **never** point to valid data
   - the recommended way is to use the `NULL` which is actually 0 but can't be modified
     - it is a macro
@@ -45,3 +67,32 @@
     - dereferencing NULL pointers is forbidden and causes runtime errors and stops the flow of the program
 - the **value** of the variable is what the variable stores;
 - the **address** of the variable is information about where this variable is placed (where it *lives*).
+- an array name that is not followed by a subscript is interpreted as a pointer to
+the first element of the array
+- the compiler determines the scalar size of a pointer using this formula
+  - `ptr + (n * sizeof(data-type))` or `ptr - (n * sizeof(data-type))` where
+    - *ptr* is the pointer,
+    - *n* is the constant to add or subtract
+    - *sizeof(data-type)* is the size in bytes of the pointer type
+
+  ```c
+  char *str = "This is a string";
+  char *ptr_str; /*a character array pointer*/
+
+  ptr_str = str; /*assign address of string to ptr_str*/
+
+  *(ptr_str + 4) == str[5]; /*points to 4th index - testing for equality*/
+
+  /*print the same element from character array*/
+  puts("Before");
+  printf("Value of str[5]: %c\n", str[5]);
+  printf("Value of *(ptr_str + 5): %c\n", *(ptr_str + 5));
+
+  /*modifying list through pointer*/
+  *(ptr_str + 5) = 'I'; /*same as `str[5] = 'I'`*/
+
+  /*print the changed value*/
+  puts("After");
+  printf("Value of str[5]: %c\n", str[5]);
+  printf("Value of *(ptr_str + 5): %c\n", *(ptr_str + 5));
+  ```
