@@ -32,12 +32,15 @@
   - instead use this
 
      ```c
-     const int size = 4; /*modified line*/
-     int ages[size] = {34, 32, 12, 9};
+     /*option 1 - fixed array size*/
+     #define SIZE 4 /*modified line*/
+     int ages[SIZE] = {34, 32, 12, 9};
+
+     /*option 2 - dynamic emory allocation*/
      ```
 
 - The above code works because it complies with the **static array initialization rule**
-- The `size` is known at compile time and it doesn't change later in the code. It is a **constant**
+- The `SIZE` is known at compile time and it doesn't change later in the code. It is a **constant**
 
 ### Code snippets on Arrays
 
