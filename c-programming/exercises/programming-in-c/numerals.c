@@ -43,6 +43,7 @@ int main(void)
 
 		default:
 			puts("Did not receive a valid base to convert to.");
+			puts("Currently accepts only base 2, 8, and 16");
 	}
 
 	return (0);

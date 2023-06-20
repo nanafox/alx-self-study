@@ -7,7 +7,7 @@
 */
 void to_base2(unsigned int num)
 {
-	int binary[32];
+	unsigned int binary[32];
 	int index = 0;
 
 	do
