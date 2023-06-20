@@ -10,11 +10,11 @@ int loop_version(int n);
  */
 int main(void)
 {
-	int sum = add_recursive(10);
-	int sum2 = loop_version(10);
-
-	printf("Recursive sum: %d\n", sum);
-	printf("Iterative sum: %d\n", sum2);
+	for (int i = 0; i <= 10; i++)
+		printf("Recursive sum: %d\n", add_recursive(i));
+	putchar('\n');
+	for (int i = 0; i <= 10; i++)
+		printf("Iterative sum: %d\n", loop_version(i));
 }
 
 /**
@@ -26,13 +26,12 @@ int main(void)
  */
 int add_recursive(int n)
 {
-	static int result; /*ensures previous value is rememberred*/
+	int result = 0; /*ensures previous value is rememberred*/
 
-	result += n;
-	if (n > 0)
-		add_recursive(--n);
-
-	return (result);
+	if (n == 0)
+		return (result);
+	
+	return (result + n + add_recursive(--n));
 }
 
 /**
