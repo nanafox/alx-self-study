@@ -84,7 +84,7 @@ the first element of the array
 
   ptr_str = str; /*assign address of string to ptr_str*/
 
-  *(ptr_str + 4) == str[5]; /*points to 4th index - testing for equality*/
+  *(ptr_str + 5) == str[5]; /*points to 5th index - testing for equality*/
 
   /*print the same element from character array*/
   puts("Before");

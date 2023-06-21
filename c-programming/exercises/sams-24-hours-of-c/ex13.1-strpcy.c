@@ -3,7 +3,7 @@
 char str_cpy(char const *src, char *copied_str);
 
 /**
- * main - copy a string. Solution to Excercise 1 (Hour 13)
+ * main - copy a string. Solution to Exercise 1 (Hour 13)
  *
  * Return: 0
 */

@@ -11,10 +11,10 @@ int loop_version(int n);
 int main(void)
 {
 	for (int i = 0; i <= 10; i++)
-		printf("Recursive sum: %d\n", add_recursive(i));
+		printf("Recursive sum for %2d: %2d\n", i, add_recursive(i));
 	putchar('\n');
 	for (int i = 0; i <= 10; i++)
-		printf("Iterative sum: %d\n", loop_version(i));
+		printf("Iterative sum for %2d: %2d\n", i, loop_version(i));
 }
 
 /**
