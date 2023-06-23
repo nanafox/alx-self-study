@@ -20,13 +20,13 @@ int main(void)
 		printf("%d ", nums_1[i]);
 	putchar('\n');
 
-	puts("After Sort - Ascending order");
-	sort_asc(nums_1, SIZE); /*sort in asceding order*/
+	puts("\nAfter Sort - Ascending order");
+	sort_asc(nums_1, SIZE); /*sort in ascending order*/
 	for (int i = 0; i < SIZE; i++)
 		printf("%d ", nums_1[i]);
 	putchar('\n');
 
-	puts("After Sort - Descending order");
+	puts("\nAfter Sort - Descending order");
 	sort_desc(nums_2, SIZE); /*sort in descending order*/
 	for (int i = 0; i < SIZE; i++)
 		printf("%d ", nums_2[i]);
@@ -47,13 +47,13 @@ void sort_asc(int *list, int size)
 
 	for (i = 0; i < size; i++)
 	{
-		for (j = i + 1; j < size; j++)
+		for (j = 0; j < size - i - 1; j++)
 		{
-			if (list[i] > list[j])
+			if (list[j] > list[j + 1])
 			{
-				swap = list[i];
-				list[i] = list[j];
-				list[j] = swap;
+				swap = list[j];
+				list[j] = list[j + 1];
+				list[j + 1] = swap;
 			}
 		}
 	}
@@ -71,16 +71,14 @@ void sort_desc(int *list, int size)
 
 	for (i = 0; i < size; i++)
 	{
-		for (j = i + 1; j < size; j++)
+		for (j = 0; j < size - i - 1; j++)
 		{
-			if (list[i] < list[j])
+			if (list[j] < list[j + 1])
 			{
-				swap = list[i];
-				list[i] = list[j];
-				list[j] = swap;
+				swap = list[j];
+				list[j] = list[j + 1];
+				list[j + 1] = swap;
 			}
 		}
-
 	}
 }
-
