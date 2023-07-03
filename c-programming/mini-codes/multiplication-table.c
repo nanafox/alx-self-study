@@ -36,11 +36,19 @@ int main(int argc, char *argv[])
 	int multiplier = 1;
 
 	/*Takes care of the individual numbers. (what I call base numbers)*/
+	printf("%4c", ' ');
+	for (int i = 0; i < len; i++)
+		printf("%4d", i + 1);
+	putchar('\n');
+
 	for (int i = 0; i < num; i++)
 	{
-		/*uses the multiplier to get the product -> base_number * multiplier*/
+
+		printf("%4d", i + 1);
+		/*uses the multiplier to get the product -> base_number *
+		 * multiplier*/
 		for (int j = 1; j <= len; j++)
-			printf("%5d ", j * multiplier); /*print with widths*/
+			printf("%4d", j * multiplier); /*print with widths*/
 		multiplier++;
 		/*add a newline after every table row*/
 		printf("\n");

@@ -12,7 +12,7 @@ int multiply(int x, int y)
 
 /// @brief Answers the question 5 of Hour 3's Exercise
 /// @param void basically nothing.
-/// @return 0. On suceess
+/// @return 0. On success
 int main(void)
 {
     int a = 13;
