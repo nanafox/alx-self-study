@@ -17,12 +17,9 @@ int main(void)
 
 	/*getting emp2 from user input*/
 	employee emp2;
+	
 	get_emp_info(&emp2);
-
-	puts("\nEmployee Info");
-	printf("Name: %s", emp2.name);
-	printf("Department: %s", emp2.dept);
-	printf("ID: %d\n", emp2.id);
-
+	print_info(&emp2);
+	
 	return (0);
 }
