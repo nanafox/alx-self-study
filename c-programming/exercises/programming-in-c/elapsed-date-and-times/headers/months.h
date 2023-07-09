@@ -19,10 +19,7 @@ enum months
 	november,
 	december
 };
-#endif
 
-#ifndef accumulate_month_days_h
-#define accumulate_month_days_h
 /**
  * enum accumulate_month_days - accumulative days of the months
  */

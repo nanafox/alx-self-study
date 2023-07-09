@@ -11,17 +11,44 @@
  */
 bool is_leap_year(int year)
 {
-	if ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0))
-		return (1);
-	return (0);
+	return ((true) ? ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0))
+				   : false);
+}
+
+/**
+ * is_valid_day_and_month - Validates day of month and month in years.
+ * Ensures that they fall within calendar days and months.
+ *
+ * @date: date in the format dd/mm/yyyy
+ *
+ * Return: true or false, based on outcome.
+ */
+bool is_valid_day_and_month(date date)
+{
+	int days_in_months[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+	if (is_leap_year(date.year))
+		days_in_months[february] = 29;
+
+	if ((date.month < january) || (date.month > december))
+	{
+		printf("Month is incorrect!\n");
+		return (false);
+	}
+
+	if (date.day > days_in_months[date.month])
+	{
+		printf("Day of month is invalid!\n");
+		return (false);
+	}
+
+	return (true);
 }
 
 /**
  * get_day_of_year - day of year checker, takes into account leap years.
  *
- * @day: day
- * @month: month
- * @year: year
+ * @day_of_year: date in the format dd/mm/yyyy
  *
  * Return: day of year, -1 if error
  */
@@ -32,33 +59,33 @@ int get_day_of_year(date day_of_year)
 						month8_days, month9_days, month10_days, month11_days,
 						month12_days};
 
-	/*check the day of year and return result*/
-	if ((day_of_year.month >= january) && (day_of_year.month <= december) &&
-		day_of_year.day <=
-			(month_days[day_of_year.month] - month_days[day_of_year.month - 1]))
+	if (is_valid_day_and_month(day_of_year))
 	{
-		/*account for extra day in February*/
-		if (is_leap_year(day_of_year.year))
-			return (month_days[day_of_year.month - 1] + day_of_year.day + 1);
-		/*day of year = previous month's days + day checked for*/
-		return (month_days[day_of_year.month - 1] + day_of_year.day);
+		/*check the day of year and return result*/
+		if ((day_of_year.month >= january) && (day_of_year.month <= december) &&
+			day_of_year.day <= (month_days[day_of_year.month] -
+								month_days[day_of_year.month - 1]))
+		{
+			/*account for extra day in February*/
+			if (is_leap_year(day_of_year.year))
+				return (month_days[day_of_year.month - 1] + day_of_year.day +
+						1);
+			/*day of year = previous month's days + day checked for*/
+			return (month_days[day_of_year.month - 1] + day_of_year.day);
+		}
 	}
-
 	return (-1); /*error occurred*/
 }
 
 /**
  * days_left - check the number of days left
  *
- * @day: day
- * @month: month
- * @year: year
+ * @day_of_year: date in the format dd/mm/yyyy
  *
  * Return: remaining days in the year specified, else -1 on error
  */
 int days_left(date day_of_year)
 {
-	int total_days;
 	int day = get_day_of_year(day_of_year);
 
 	if (day >= 1)
