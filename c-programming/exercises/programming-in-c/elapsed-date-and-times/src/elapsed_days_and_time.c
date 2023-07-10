@@ -8,22 +8,22 @@
  *
  * Return: interval
  */
-int get_interval(date base_date)
+int get_interval(date *base_date)
 {
 	int interval;
 
 	if (is_valid_day_and_month(base_date))
 	{
-		if (base_date.month <= 2)
+		if (base_date->month <= 2)
 		{
-			base_date.year -= 1;
-			base_date.month += 13;
+			base_date->year -= 1;
+			base_date->month += 13;
 		}
 		else
-			++base_date.month; /*add one to month*/
+			++base_date->month; /*add one to month*/
 
-		interval = ((1461 * base_date.year) / 4) +
-				   ((153 * base_date.month) / 5) + base_date.day;
+		interval = ((1461 * base_date->year) / 4) +
+				   ((153 * base_date->month) / 5) + base_date->day;
 	}
 	else
 		return (-1);
@@ -42,7 +42,7 @@ int get_interval(date base_date)
  *
  * Return: difference between start date and end date
  */
-int elapsed_days(date start_date, date end_date)
+int elapsed_days(date *start_date, date *end_date)
 {
 	return (get_interval(end_date) - get_interval(start_date));
 }

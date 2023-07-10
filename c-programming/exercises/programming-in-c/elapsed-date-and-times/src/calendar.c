@@ -23,20 +23,20 @@ bool is_leap_year(int year)
  *
  * Return: true or false, based on outcome.
  */
-bool is_valid_day_and_month(date date)
+bool is_valid_day_and_month(date *date)
 {
 	int days_in_months[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-	if (is_leap_year(date.year))
+	if (is_leap_year(date->year))
 		days_in_months[february] = 29;
 
-	if ((date.month < january) || (date.month > december))
+	if ((date->month < january) || (date->month > december))
 	{
 		printf("Month is incorrect!\n");
 		return (false);
 	}
 
-	if (date.day > days_in_months[date.month])
+	if (date->day > days_in_months[date->month])
 	{
 		printf("Day of month is invalid!\n");
 		return (false);
@@ -52,7 +52,7 @@ bool is_valid_day_and_month(date date)
  *
  * Return: day of year, -1 if error
  */
-int get_day_of_year(date day_of_year)
+int get_day_of_year(date *day_of_year)
 {
 	int month_days[] = {0,			 month1_days, month2_days,	month3_days,
 						month4_days, month5_days, month6_days,	month7_days,
@@ -62,16 +62,17 @@ int get_day_of_year(date day_of_year)
 	if (is_valid_day_and_month(day_of_year))
 	{
 		/*check the day of year and return result*/
-		if ((day_of_year.month >= january) && (day_of_year.month <= december) &&
-			day_of_year.day <= (month_days[day_of_year.month] -
-								month_days[day_of_year.month - 1]))
+		if ((day_of_year->month >= january) &&
+			(day_of_year->month <= december) &&
+			day_of_year->day <= (month_days[day_of_year->month] -
+								 month_days[day_of_year->month - 1]))
 		{
 			/*account for extra day in February*/
-			if (is_leap_year(day_of_year.year))
-				return (month_days[day_of_year.month - 1] + day_of_year.day +
+			if (is_leap_year(day_of_year->year))
+				return (month_days[day_of_year->month - 1] + day_of_year->day +
 						1);
 			/*day of year = previous month's days + day checked for*/
-			return (month_days[day_of_year.month - 1] + day_of_year.day);
+			return (month_days[day_of_year->month - 1] + day_of_year->day);
 		}
 	}
 	return (-1); /*error occurred*/
@@ -84,14 +85,51 @@ int get_day_of_year(date day_of_year)
  *
  * Return: remaining days in the year specified, else -1 on error
  */
-int days_left(date day_of_year)
+int days_left(date *day_of_year)
 {
 	int day = get_day_of_year(day_of_year);
 
 	if (day >= 1)
-		if (is_leap_year(day_of_year.year))
+		if (is_leap_year(day_of_year->year))
 			return (366 - day);
 		else
 			return (365 - day);
 	return (-1);
+}
+
+/**
+ * day_of_week - prints the day of week of the specified date
+ *
+ * @day_of_year: date
+ */
+void day_of_week(date day_of_year)
+{
+	int day_of_week = (get_interval(&day_of_year) - 621049) % 7;
+
+	switch (day_of_week)
+	{
+		case 0:
+			puts("Sunday");
+			break;
+		case 1:
+			puts("Monday");
+			break;
+		case 2:
+			puts("Tuesday");
+			break;
+		case 3:
+			puts("Wednesday");
+			break;
+		case 4:
+			puts("Thursday");
+			break;
+		case 5:
+			puts("Friday");
+			break;
+		case 6:
+			puts("Saturday");
+			break;
+		default:
+			break;
+	}
 }

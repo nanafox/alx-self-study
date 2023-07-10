@@ -62,7 +62,7 @@ void print_date_diff(void)
 	printf("End ");
 	date end_date = get_date(&end_date);
 
-	int diff = elapsed_days(start_date, end_date);
+	int diff = elapsed_days(&start_date, &end_date);
 
 	if (diff >= 0)
 	{
@@ -85,6 +85,8 @@ void print_remaining_days(void)
 {
 	date date = get_date(&date);
 
-	printf("Day of year: %d\n", get_day_of_year(date));
-	printf("Days remaining: %d\n", days_left(date));
+	printf("Day of week: ");
+	day_of_week(date);
+	printf("Day of year: %d\n", get_day_of_year(&date));
+	printf("Days remaining: %d\n", days_left(&date));
 }
