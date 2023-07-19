@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+void print_nibble(int n);
+
 /**
  * main - start here
  *
@@ -10,22 +12,25 @@
  */
 int main(void)
 {
-	int num, low_nibble, high_nibble;
+	int num;
 
-	do {
-		printf("Enter a number: ");
-		scanf("%d", &num);
-	} while (num > 256);
+	printf("Number: ");
+	scanf("%d", &num);
 
-	/* perform ANDing on lower nibble */
-	low_nibble = num & 15; /*00001111*/
-	/* shift right, then perform ANDing */
-	high_nibble = (num >> 4) & 15;
-
-	/*print nibbles*/
-	printf("High nibble: %d\n", high_nibble);
-	printf("Low nibble: %d\n", low_nibble);
-	printf("Hex Value: %X%X\n", high_nibble, low_nibble);
-
+	if (num >= 0 && num <= 255)
+		print_nibble(num);
+	else
+		puts("Number is too high or too low");
 	return (0);
+}
+
+/**
+ * print_nibble - print decimal parts of a nibble
+ *
+ * @n: number
+ */
+void print_nibble(int n)
+{
+	printf("H nibble: %d\n", n >> 0x4);
+	printf("L nibble: %d\n", n & 0xF);
 }
