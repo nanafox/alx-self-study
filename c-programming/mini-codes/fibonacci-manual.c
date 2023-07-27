@@ -2,7 +2,7 @@
 
 /**
  * main - a manual implementation for generating
- * any number of fibonnaci numbers, starting with 0 and 1.
+ * any number of fibonacci numbers, starting with 0 and 1.
  *
  * Return: 0
 */
