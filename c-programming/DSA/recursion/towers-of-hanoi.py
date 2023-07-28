@@ -3,9 +3,9 @@ def towers_of_hanoi(disks, src, dest, aux):
     tower_of_hanoi problem
 
     :param disks: number of disks
-    :param src: start disk
-    :param dest: destination disk
-    :param aux: auxiliary disk
+    :param src: start needle
+    :param dest: destination needle
+    :param aux: auxiliary needle
     """
     if disks == 1:
         print_move(disks, src, dest)
@@ -20,8 +20,8 @@ def print_move(disk, src, dest):
     prints the move
 
     :param disk: the disk moved
-    :param src: source
-    :param dest: destination
+    :param src: source needle
+    :param dest: destination needle
     """
     print(f"Move disk {disk} from needle {src} to needle {dest}")
 
