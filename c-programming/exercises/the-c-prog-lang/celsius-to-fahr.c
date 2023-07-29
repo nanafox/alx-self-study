@@ -6,13 +6,13 @@
 
 #include <stdio.h>
 
-/// @brief Performs fahrenheit to celcius conversion
+/// @brief Performs fahrenheit to celsius conversion
 /// @param celcius_temperature The temperature in Fahrenheit
 /// @returns Temperature in Farhenheit
-float celcius_to_fahr(float celcius_temperature)
+float celsius_to_fahr(float celsius_temperature)
 {
-    // compute fahr from celcius
-    return (celcius_temperature * 9 / 5) + 32;
+    // compute fahr from celsius
+    return (celsius_temperature * 9 / 5) + 32;
 }
 
 /// @brief Performs fahrenheit to celcius conversion
