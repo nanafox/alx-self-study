@@ -42,6 +42,44 @@ class SinglyLinkedList:
             self.tail = node
         self.size += 1
 
+    def insert(self, index, data):
+        """
+        insert at any given index position
+
+        :param index: position to insert at
+        :param data: the value to be inserted
+
+        Mimics Python's list insert() method to some extend. It doesn't implement
+        the negative indexing. But upper bound index greater than the list's size
+        are all taken as appends. So for a linked list of size 4, if the instruction
+        `nodes.insert(8, 45)` is received, it is treated as if `nodes.append(45)`
+        was called.
+
+        Time Complexity: O(1) best case, O(n) worst case
+        Space complexity: O(1)
+        """
+        if index < 0:
+            print("Invalid index position")
+            return
+
+        if index == 0:
+            self.prepend(data)
+        elif index == self.size or index > self.size:
+            self.append(data)
+        else:
+            compare_index = 0
+            node = Node(data)
+            cur = self.head
+            prev = self.head
+
+            while compare_index < index:
+                compare_index += 1
+                prev = cur
+                cur = cur.next
+            prev.next = node
+            node.next = cur
+            self.size += 1  # update size
+
     def iter(self):
         """
         abstracts data nodes from user and generates an iterable
@@ -113,11 +151,11 @@ class SinglyLinkedList:
 
         for item in self.iter():
             if item == data:  # a match is found
+                self.size -= 1  # decrement size
                 if cur == self.head:
                     self.head = cur.next  # move pointer from node, deleting it
                 else:
                     prev.next = cur.next  # update pointer
-                self.size -= 1  # decrement size
                 break  # hush now
 
             prev = cur  # update previous with current value
@@ -135,11 +173,62 @@ class SinglyLinkedList:
 
         for item in self.iter():
             if item == data:  # a match is found
+                self.size -= 1  # decrement size
                 if cur == self.head:
                     self.head = cur.next  # move pointer from node, deleting it
                 else:
                     prev.next = cur.next  # update pointer
-                self.size -= 1  # decrement size
 
             prev = cur  # update previous with current value
             cur = cur.next  # get next value to check
+
+    def pop(self, index=-1):
+        """
+        removes an item and returns the data
+
+        :param index: index, defaults to -1
+        :return: value of deleted element
+        """
+        cur = self.head
+        prev = self.head
+        c_index = 0
+
+        """
+        This current implementation is obviously not the best I want to get to
+        but for now, here's what I have to offer. Python's list implementation
+        of the `pop()` method removes the last element in the list and returns
+        the value that was stored at that position.
+        Mine does same, but with a Time complexity of O(n). Currently, my best
+        case is when index is 0. That gives me an O(1).
+        """
+        if index == -1:
+            index = self.size - 1 # get index of last item
+
+        if index == 0:  # pop first from beginning item. O(1)
+            self.head = cur.next
+            self.size -= 1
+            return cur.data
+
+        for _ in self.iter():
+            if c_index == index:  # a match is found
+                self.size -= 1  # decrement size
+                prev.next = cur.next  # update pointer
+                return cur.data
+
+            prev = cur  # update previous with current value
+            cur = cur.next  # get next value to check
+            c_index += 1
+
+    def reverse(self):
+        """
+        reverses list in place
+        """
+        cur = self.head
+        prev = None
+
+        for _ in self.iter():
+            next = cur.next
+            cur.next = prev
+            prev = cur
+            cur = next
+        self.head = prev
