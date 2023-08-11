@@ -87,3 +87,25 @@ void insert(Node **head, int pos, int data)
 	prev->next = node; /* prev node's pointer points to new node */
 	node->next = cur;  /* new node's next pointer points to next node */
 }
+
+/**
+ * reverse_list - reverses list, in-place
+ *
+ * @head: pointer to head node
+ */
+void reverse_list(Node **head)
+{
+	Node *current, *next, *prev;
+
+	current = *head;
+	prev = NULL;
+
+	while (current != NULL)
+	{
+		next = current->next;
+		current->next = prev; /* point to previous node */
+		prev = current; /* build next pointers - in reverse order */
+		current = next; /* continue traversal */
+	}
+	*head = prev;
+}

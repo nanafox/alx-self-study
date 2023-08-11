@@ -3,6 +3,8 @@
 #include "node.h"
 
 void print_list(Node *list);
+void print_reverse(Node *head);
+void reverse_list(Node **head);
 void del(Node **head, int data);
 void del_all(Node **head, int data);
 void prepend(Node **head, int data);

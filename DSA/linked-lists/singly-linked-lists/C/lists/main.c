@@ -40,5 +40,12 @@ int main(void)
 	insert(&head, 6, 21);
 	insert(&head, 8, 123);
 	print_list(head);
+
+	int n;
+	printf("Remove element: ");
+	scanf("%d", &n);
+	del(&head, n);
+	print_list(head);
+
 	return (0);
 }

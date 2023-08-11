@@ -1,5 +1,6 @@
 #include "../headers/operations.h"
 #include <stdio.h>
+#include <malloc.h>
 
 /**
  * del - delete the first occurrence of an element in the list
@@ -20,6 +21,7 @@ void del(Node **head, int data)
 				*head = cur->next;
 			else
 				prev->next = cur->next;
+			free(cur);
 			break;
 		}
 		prev = cur;
@@ -36,20 +38,39 @@ void del(Node **head, int data)
 void del_all(Node **head, int data)
 {
 	Node *cur = *head;
-	Node *prev = *head;
+	Node *prev = NULL;
 
 	if (*head == NULL)
+	{
+		printf("List is empty...\n");
 		return;
+	}
+
 	while (cur != NULL)
 	{
-		if (cur->data == data)
+		if (cur->data == data) /* match found */
 		{
-			if (cur == *head)
-				*head = cur->next;
+			Node *next_node = cur->next;
+
+			free(cur); /* free memory */
+
+			if (prev == NULL)
+			{
+				/* update head and move current to new head */
+				*head = next_node;
+				cur = next_node;
+			}
 			else
-				prev->next = cur->next;
+			{
+				prev->next = next_node; /* update prev's next pointer */
+				cur = next_node; /*and move cur to the next node after deletion */
+			}
 		}
-		prev = cur;
-		cur = cur->next;
+		else
+		{
+			/* continue searching */
+			prev = cur;
+			cur = cur->next;
+		}
 	}
 }

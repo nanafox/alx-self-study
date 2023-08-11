@@ -18,10 +18,11 @@ int error(int code)
 	case 1:
 		fprintf(stderr, "Error: %s\n", strerror(errno));
 		exit(code);
-    case 2:
-        fprintf(stderr, "Error: Invalid index position\n");
+	case 2:
+		fprintf(stderr, "Error: Invalid index position\n");
 		exit(code);
 	default:
+		fprintf(stderr, "An error occurred and I don't know why!\n");
 		break;
 	}
 }
@@ -40,6 +41,25 @@ void print_list(Node *list)
 		list = list->next;
 	}
 	printf("]\n");
+}
+
+/**
+ * print_reverse - prints list in reverse order. list is unchanged
+ *
+ * Time Complexity: O(n)
+ * Space complexity: O(n)
+ *
+ * Note: This is just for testing and learning purposes, this is
+ * not very efficient.
+ *
+ * @head: head node
+ */
+void print_reverse(Node *head)
+{
+	if (head == NULL)
+		return;
+	print_reverse(head->next);
+	printf("%d ", head->data);
 }
 
 /**
