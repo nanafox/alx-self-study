@@ -18,7 +18,9 @@ int error(int code)
 	case 1:
 		fprintf(stderr, "Error: %s\n", strerror(errno));
 		exit(code);
-
+    case 2:
+        fprintf(stderr, "Error: Invalid index position\n");
+		exit(code);
 	default:
 		break;
 	}
@@ -62,4 +64,23 @@ unsigned int len(Node *head)
 	}
 
 	return (len);
+}
+
+/**
+ * find - checks if an element is in the list
+ *
+ * @head: pointer head node
+ * @data: value to search
+ *
+ * Return: 1 if found, 0 otherwise
+ */
+int find(Node *head, int data)
+{
+	while (head != NULL)
+	{
+		if (head->data == data)
+			return (1);
+		head = head->next;
+	}
+	return (0);
 }
