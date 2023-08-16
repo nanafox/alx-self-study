@@ -6,6 +6,15 @@ class SinglyLinkedList:
         self.tail = None
         self.head = None
         self.size = 0  # size is updated through insertion/deletion
+    
+    def __len__(self):
+        """
+        gets the size of a linked list
+        Time complexity: O(1)
+
+        :returns: the length of the linked list
+        """
+        return self.size
 
     def prepend(self, data):
         """
@@ -130,15 +139,6 @@ class SinglyLinkedList:
             items.append(item)
         return items
 
-    def len(self):
-        """
-        gets the size of a linked list
-        Time complexity: O(1)
-
-        :returns: the length of the linked list
-        """
-        return self.size
-
     def remove(self, data):
         """
         removes the first occurrence of the data specified
@@ -201,10 +201,10 @@ class SinglyLinkedList:
         Mine does same, but with a Time complexity of O(n). Currently, my best
         case is when index is 0. That gives me an O(1).
         """
-        if index == -1:
-            index = self.size - 1 # get index of last item
+        if (index < 0) and (self.size + index >= 0):
+            index = self.size + index # get index of element from right
 
-        if index == 0:  # pop first from beginning item. O(1)
+        elif index == 0:  # pop first from beginning item. O(1)
             self.head = cur.next
             self.size -= 1
             return cur.data
