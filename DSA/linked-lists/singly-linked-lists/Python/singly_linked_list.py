@@ -16,6 +16,33 @@ class SinglyLinkedList:
         """
         return self.size
 
+    def __iter__(self):
+        """
+        abstracts data nodes from user and generates an iterable
+        """
+        cur = self.head
+        while cur:
+            data = cur.data
+            cur = cur.next
+            yield data
+
+    def __items__(self):
+        """
+        creates a list with the linked list
+
+        :returns: a list with node values
+        """
+        items = []
+        for item in self.__iter__():
+            items.append(item)
+        return items
+
+    def __repr__(self):
+        return repr(self.__items__())
+
+    def __str__(self):
+        return str(self.__items__())
+
     def prepend(self, data):
         """
         insert an element at the beginning of the list
@@ -89,16 +116,6 @@ class SinglyLinkedList:
             node.next = cur
             self.size += 1  # update size
 
-    def iter(self):
-        """
-        abstracts data nodes from user and generates an iterable
-        """
-        cur = self.head
-        while cur:
-            data = cur.data
-            cur = cur.next
-            yield data
-
     def find_item(self, item):
         """
         checks if an item is in a linked list
@@ -106,38 +123,26 @@ class SinglyLinkedList:
         Time Complexity: O(n)
 
         :param item: item to search for
-        :returns: True if found, else False
+        :returns: True if found, else None
         """
-        for data in self.iter():
+        for data in self.__iter__():
             if data == item:
                 return True
-        return False
+        return None
 
     def index(self, element):
         """
         returns the value at the index position given
 
         :param element: element to search for
-        :returns: a formatted string with index information
+        :returns: index position if found, else None
         """
-        compare_index = 0
-        for data in self.iter():
+        index = 0
+        for data in self.__iter__():
             if data == element:
-                return f"{data} is at index {compare_index}"
-            compare_index += 1
-
-        return f"{element} is not in the list"
-
-    def items(self):
-        """
-        creates a list with the linked list
-
-        :returns: a list with node values
-        """
-        items = []
-        for item in self.iter():
-            items.append(item)
-        return items
+                return index
+            index += 1
+        return None
 
     def remove(self, data):
         """
@@ -149,7 +154,7 @@ class SinglyLinkedList:
         cur = self.head
         prev = self.head
 
-        for item in self.iter():
+        for item in self.__iter__():
             if item == data:  # a match is found
                 self.size -= 1  # decrement size
                 if cur == self.head:
@@ -171,7 +176,7 @@ class SinglyLinkedList:
         cur = self.head
         prev = self.head
 
-        for item in self.iter():
+        for item in self.__iter__():
             if item == data:  # a match is found
                 self.size -= 1  # decrement size
                 if cur == self.head:
@@ -209,7 +214,7 @@ class SinglyLinkedList:
             self.size -= 1
             return cur.data
 
-        for _ in self.iter():
+        for _ in self.__iter__():
             if c_index == index:  # a match is found
                 self.size -= 1  # decrement size
                 prev.next = cur.next  # update pointer
@@ -226,7 +231,7 @@ class SinglyLinkedList:
         cur = self.head
         prev = None
 
-        for _ in self.iter():
+        for _ in self.__iter__():
             next = cur.next
             cur.next = prev
             prev = cur

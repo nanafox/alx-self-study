@@ -4,18 +4,16 @@ numbers = llist()
 
 for i in range(1, 11):
     numbers.append(i)
-
-print(numbers.items())
+print(numbers)
 
 numbers.insert(1, 1.5)
 numbers.append(11)
 numbers.prepend(0)
 
-print(numbers.items())
+print(numbers)
 
-numbers.reverse()
-print(numbers.items())
-
-numbers.reverse()
+numbers.pop(7)
 numbers.pop()
-print(numbers.items())
+numbers.pop()
+
+print(numbers)
