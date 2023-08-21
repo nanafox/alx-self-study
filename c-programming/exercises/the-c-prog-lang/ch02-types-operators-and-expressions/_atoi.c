@@ -1,5 +1,5 @@
 /**
- * _atoi - character to integer convertor
+ * _atoi - string to integer convertor
  *
  * @s: string
  *

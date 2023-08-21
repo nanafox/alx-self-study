@@ -1,4 +1,4 @@
-#include "../../../my_headers/string_io.h"
+#include "../../../utils/strings/string_io.h"
 #include <stdio.h>
 #define LEN 100
 
@@ -74,7 +74,7 @@ void escape_reverse(char *s, char *t)
 
 	for (i = j = 0; t[i] != '\0'; i++, j++)
 	{
-		/* check if for newline and tabs */
+		/* check for newline and tabs */
 		int e_char = (t[i] == '\\' && t[i + 1] == 'n')	 ? 1  /* new line */
 					 : (t[i] == '\\' && t[i + 1] == 't') ? 2  /* tab */
 														 : 0; /* others */
