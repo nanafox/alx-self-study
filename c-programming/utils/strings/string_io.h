@@ -6,5 +6,6 @@
 
 void _fgets(char *str, int len);
 int _getline(char *line, int len);
+void _reverse(char *s);
 
 #endif

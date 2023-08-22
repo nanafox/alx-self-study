@@ -1,4 +1,3 @@
-#include "string_io.h"
 /**
  * _getline - gets a line from stdin
  *

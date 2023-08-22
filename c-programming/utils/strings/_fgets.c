@@ -1,5 +1,3 @@
-#include "string_io.h"
-
 /**
  * _fgets - fgets wrapper to remove newline character
  * @str: string
