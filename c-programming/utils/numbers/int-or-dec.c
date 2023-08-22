@@ -1,4 +1,3 @@
-
 /**
  * type - checks if a number is an integer or a float
  *
