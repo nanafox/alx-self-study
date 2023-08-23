@@ -1,10 +1,16 @@
+#include "nums_lib.h"
+#include "../strings/string_io.h"
+
 /**
  * _itoa - convert integer to string
  *
  * @n: the integer to convert
- * @s: a char array to hold the conversion (must be assigned on heap)
+ * @s: string to store results
  *
  * Note: The conversion stores the results in a reversed order
+ *
+ * Return: length of @s
+ *
  */
 void _itoa(int n, char *s)
 {
@@ -15,11 +21,11 @@ void _itoa(int n, char *s)
 
 	do {
 		s[i++] = n % 10 + '0'; /* get next digit */
-		s = realloc(s, sizeof(char) * 2);
 	} while ((n /= 10) > 0);
 
 	if (sign < 0)
 		s[i++] = '-';
+
 	s[i] = '\0';
-	_reverse(s);
+	_reverse(s, i);
 }

@@ -3,19 +3,13 @@
  *
  * @s: string to reverse
  */
-void _reverse(char *s)
+void _reverse(char *s, int len)
 {
-	char *end = s;
-
-	for (; *(end + 1) != '\0'; end++) /* check the end of the string */
-		;
-
 	/* swap positions */
-	for (; s < end; s++, end--)
+	for (int i = 0, j = len - 1; i < j; i++, j--)
 	{
-		char temp = *s;
-		*s = *end;
-		*end = temp;
+		char temp = s[i];
+		s[i]= s[j];
+		s[j] = temp;
 	}
 }
-

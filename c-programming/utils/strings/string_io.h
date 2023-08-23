@@ -4,9 +4,8 @@
 #include <string.h>
 #include <stdio.h>
 
-void _fgets(char *str, int len);
-int _getline(char *line, int len);
-void _reverse(char *s);
-void _itoa(int n, char *s);
+extern void _fgets(char *str, int len);
+extern int _getline(char *line, int len);
+extern void _reverse(char *s, int len);
 
 #endif
