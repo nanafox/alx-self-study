@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 void _itob(int n, char *s, int b)
 {
 	int i = 0, sign = n;
-	
+
 	if (n < 0)
 		n = -n;
 
