@@ -1,5 +1,5 @@
-#include <math.h>
 #include "../include/io_handlers.h"
+#include <math.h>
 #include <stdio.h>
 
 /**
@@ -14,9 +14,10 @@
  *
  * Return: length of s
  */
-int int_to_str(int x, char *str, int d)
+int int_to_str(long long x, char *str, int d)
 {
-	int i = 0, sign = x;
+	int i = 0;
+	long long int sign = x;
 
 	if (x < 0)
 		x = -x;
@@ -43,24 +44,24 @@ int int_to_str(int x, char *str, int d)
  * @f: floating point number
  * @s: string to store the result
  */
-void _ftoa(double f, char *s)
+void _ftoa(long double f, char *s)
 {
-	double sign = f;
+	long double sign = f;
 	int j = 0;
 
 	if (f < 0)
 		f = -f;
 	/* Extract integer part */
-	int ipart = (int)f;
+	long long ipart = (long long)f;
 
 	/* Extract floating part */
-	float fpart = (f - (float)ipart) * pow(10, 6);
+	long double fpart = (f - (long double)ipart) * pow(10, 6);
 
 	/* convert integer part to string */
 	if (sign < 0)
 		s[j++] = '-';
 	int i = int_to_str(ipart, s + j, 0);
 
-	s[i++] = '.'; /* add dot */
-	int_to_str((int)fpart, s + i, 6); /* convert the fractional part */
+	s[i++] = '.';					  /* add dot */
+	int_to_str((long long)fpart, s + i, 6); /* convert the fractional part */
 }

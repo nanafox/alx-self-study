@@ -1,5 +1,5 @@
-#include <unistd.h>
 #include "../include/io_handlers.h"
+#include <unistd.h>
 
 /**
  * _itob - convert integer @n to the specified base in @b and stores the result
@@ -9,9 +9,10 @@
  * @s: where to store result (string)
  * @b: base to convert @n to
  */
-void _itob(int n, char *s, int b)
+void _itob(long long n, char *s, int b)
 {
-	int i = 0, sign = n;
+	int i = 0;
+	long long sign = n;
 
 	if (n < 0)
 		n = -n;
