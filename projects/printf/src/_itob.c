@@ -25,12 +25,16 @@ void _itob(long long n, char *s, int b)
 	case 10:
 	case 16:
 		do {
-			s[i++] = (n % b > 9) ? 'A' + (n % b - 10) : (n % b + '0');
+			s[i++] = (n % b > 9) ? 'a' + (n % b - 10) : (n % b + '0');
 		} while ((n /= b) > 0);
 
+		if (b == 16)
+		{
+			s[i++] = 'x';
+			s[i++] = '0';
+		}
 		if (sign < 0)
 			s[i++] = '-';
-
 		_reverse(s, i); /* get the correct representation */
 		s[i] = '\0';
 		break;

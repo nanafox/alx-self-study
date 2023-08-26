@@ -1,5 +1,6 @@
 #include "include/io_handlers.h"
 #include <limits.h>
+#include <stdio.h>
 
 /**
  * main - testing the _printf function
@@ -18,12 +19,11 @@ int main(void)
 	_printf("Length: %d\n", a);
 	_printf("%s\n", s);
 	_printf("%f\n", cash);
-	_printf("Char: '%c'; Decimal: %d; Binary: %b\n", c, c, c);
+	_printf("Char: '%c'; Decimal: %d; Binary: %b; Hex: %x\n", c, c, c, c);
 	_printf("Printing all together.\n%c, %s, %f, %d\n", c, s, money, point);
 	_printf("I have a %s feeling, this was an %s project!\n", "strong",
 			"amazing");
 	_printf("This is the %% sign\n");
-	_printf("%d\n", INT_MAX + 10);
-
+	_printf("Address: %p\n", s);
 	return (0);
 }
