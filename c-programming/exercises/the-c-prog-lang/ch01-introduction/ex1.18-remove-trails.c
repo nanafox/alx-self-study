@@ -66,18 +66,19 @@ int rstrip(char str[])
 
 	for (i = 0; str[i] != '\0'; ++i) /* get string length */
 		;
-	n = i;
-
+	n = i - 1; /* minus 1 for the newline character */
 	/*
 	 * start from the end of the line and strip until a letter is
 	 * encountered. newline is not counted.
 	 */
-	for (--i; !((str[i] >= 'a' && str[i] <= 'z') ||
-				(str[i] >= 'A' && str[i] <= 'Z'));
-		 --i)
+	for (--i; i > 0; --i)
 	{
-		if (str[i] == ' ' || str[i] == '\t')
-			str[i] = '\0';
+		if (str[i] == '\n')
+			continue;
+		else if (str[i] != ' ' && str[i] != '\t')
+			break;
+		/* remove trailing blanks */
+		str[i] = '\0';
 		--n;
 	}
 	return (n);
