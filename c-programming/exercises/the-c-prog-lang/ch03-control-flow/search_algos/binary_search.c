@@ -18,9 +18,9 @@ int binary_search(int target, int *sorted_arr, int arr_count)
 	{
 		mid = (low + high) / 2;
 		if (target < sorted_arr[mid])
-			high = mid - 1; /* discard previous upper and search lower half */
+			high = mid - 1; /* discard previous lower bound and move up */ 
 		else if (target > sorted_arr[mid])
-			low = mid + 1; /* discard previous lower bound and move up */
+			low = mid + 1; /* discard previous upper and search lower half */
 		else
 			return (mid); /* match found */
 	}
