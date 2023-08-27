@@ -5,10 +5,10 @@ int _getline(char line[], int maxline);
 void reverse(char str[]);
 
 /**
- * main - Exercise 1-18
+ * main - Exercise 1-19
  *
- * Write a program to remove trailing blanks and tabs from each
- * line of input, and to delete entirely blank lines.
+ * Write a function reverse(s) that reverses the character string s.
+ * Use it to write a program that reverses its input a line at a time.
  *
  * Return: 0
  */
@@ -64,10 +64,12 @@ void reverse(char str[])
 	char s[len]; /* duplicate string */
 
 	for (i = 0; str[i] != '\0'; ++i)
-		if (str[i] != '\n')
-			--len;
-		else
-			s[i] = str[i];
+	{
+		if (str[i] == '\n')
+			continue;
+		s[i] = str[i];
+	}
+	s[i] = '\0';
 
 	/* reverse string */
 	for (--len, i = 0; len >= 0; --len, ++i)
