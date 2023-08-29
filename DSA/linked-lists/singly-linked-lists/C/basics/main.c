@@ -16,4 +16,29 @@ int main(void)
 	head = insert(head, 0, 98); /* [98, 54, 21, 10, 45, 33] */
 	
 	print(head);
+
+	head = del_head(head);
+	print(head);
+	head = del_tail(head);
+	print(head);
+	head = del_tail(head);
+	print(head);
+
+	head = del_index(head, 5); /* Invalid Index */
+	print(head);
+
+	Node *list = NULL;
+	/* deleting from an empty list */	
+	list = del_tail(list); 
+	list = del_head(list);
+
+	/* inserting data */
+	list = append(list, 10);
+	print(list);
+	list = del_index(list, 0);
+	print(list);
+
+	/* delete list */
+	head = del_list(head);
+	print(head);
 }
