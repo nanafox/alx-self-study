@@ -1,9 +1,12 @@
 #include <stdio.h>
-#include "sll-ops.c"
+#include "sll-ops.h"
 #include "../node.h"
 
-void print(Node *head);
-
+/**
+ * main - testing out linked list
+ *
+ * Return: 0
+*/
 int main(void)
 {
 	Node *head = NULL;
@@ -14,7 +17,7 @@ int main(void)
 	head = append(head, 33);    /* [54, 21, 10, 33] */
 	head = insert(head, 3, 45); /* [54, 21, 10, 45, 33] */
 	head = insert(head, 0, 98); /* [98, 54, 21, 10, 45, 33] */
-	
+
 	print(head);
 
 	head = del_head(head);
@@ -28,8 +31,8 @@ int main(void)
 	print(head);
 
 	Node *list = NULL;
-	/* deleting from an empty list */	
-	list = del_tail(list); 
+	/* deleting from an empty list */
+	list = del_tail(list);
 	list = del_head(list);
 
 	/* inserting data */

@@ -1,5 +1,5 @@
 #include "../node.h"
-#include "extras.c"
+#include "sll-ops.h"
 #include <stdlib.h>
 
 /**
@@ -144,72 +144,12 @@ Node *del_tail(Node *head)
 	return (head);
 }
 
-/**
- * del_index - delete node at a given index
- *
- * @head: head
- * @index: index to delete
- *
- * Return: head
- */
-Node *del_index(Node *head, int index)
-{
-	Node *prev, *cur;
-	int i = 0;
-
-	cur = head;
-	if (index == 0)
-		return (del_head(head));
-
-	while ((cur != NULL) && (i < index))
-	{
-		prev = cur;
-		cur = cur->next;
-		i++;
-	}
-	if (err_chk(cur, NOT_FOUND))
-		err_msg(NOT_FOUND);
-	else
-	{
-		/*
-		 * move previous node's next pointer to point to the next pointer of the node
-		 * to be deleted and release memory
-		 */
-		prev->next = cur->next;
-		free(cur);
-		cur = NULL;
-	}
-	return (head);
-}
-
-/**
- * del_list - delete the entire list
- *
- * @head: head
- *
- * Return: head (empty)
- */
-Node *del_list(Node *head)
-{
-	Node *temp, *cur;
-
-	cur = head;
-	while(cur != NULL)
-	{
-		temp = cur->next;
-		free(cur);
-		cur = temp;
-	}
-	head = NULL;
-	return (head);
-}
-
 /*
  * most of the operations could have been written in a single function
  * but I preferred breaking it into multiple functions for the sake of
  * learning and ease of function calls.
  *
- * I believe when the function of a funtion is clearly named, it makes
+ * I believe when the function of a function is clearly named, it makes
  * using it easier. Also, it enhances the ability to  easily remember
  * which one to use based on your needs.
  */
