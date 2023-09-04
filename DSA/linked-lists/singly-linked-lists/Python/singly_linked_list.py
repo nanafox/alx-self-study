@@ -173,19 +173,18 @@ class SinglyLinkedList:
 
         :param data: value to delete
         """
-        cur = self.head
-        prev = self.head
+        head_node = Node(0) # temporal head node
+        head_node.next = self.head
+        cur = head_node
 
-        for item in self.__iter__():
-            if item == data:  # a match is found
+        while cur.next:
+            if cur.next.data == data:  # a match is found
                 self.size -= 1  # decrement size
-                if cur == self.head:
-                    self.head = cur.next  # move pointer from node, deleting it
-                else:
-                    prev.next = cur.next  # update pointer
+                cur.next = cur.next.next # adjust pointers, removing node
+            else:
+                cur = cur.next  # get next value to check
 
-            prev = cur  # update previous with current value
-            cur = cur.next  # get next value to check
+        self.head = head_node.next
 
     def pop(self, index=-1):
         """
