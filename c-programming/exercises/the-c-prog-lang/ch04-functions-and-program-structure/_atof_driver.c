@@ -12,7 +12,7 @@ int main(void)
 	double sum = 0;
 	char decimals[][10] = {
 		{"120.342"}, {"342.123"},
-		{"34."}, {"3.124"}
+		{"-34."}, {"3.124"}
 	};
 
 	for (int i = 0; i < SIZE; i++)
