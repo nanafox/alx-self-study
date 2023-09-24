@@ -54,26 +54,22 @@ int _getline(char line[], int maxline)
  * @str: string to operate
  *
  */
-void reverse(char str[])
+void reverse(char *str)
 {
-	int len, i;
+	int len, i, mid, temp;
 
+	i = len = 0;
 	/* get string length */
-	for (len = 0; str[len] != '\0'; ++len)
-		;
-	char s[len]; /* duplicate string */
+	while (str[i] && str[i++] != '\n')
+		len++;
 
-	for (i = 0; str[i] != '\0'; ++i)
-	{
-		if (str[i] == '\n')
-			continue;
-		s[i] = str[i];
-	}
-	s[i] = '\0';
+	mid = len / 2;
 
 	/* reverse string */
-	for (--len, i = 0; len >= 0; --len, ++i)
-		str[i] = s[len];
-	str[i] = '\n';
-	str[i + 1] = '\0';
+	for (i = 0; i < mid; i++)
+	{
+		temp = str[i];
+		str[i] = str[len - i - 1];
+		str[len - i - 1] = temp;
+	}
 }
