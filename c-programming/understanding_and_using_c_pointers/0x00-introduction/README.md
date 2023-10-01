@@ -18,6 +18,13 @@
 - uninitialized pointers will contain garbage value when dereferenced
   - This is also true when the pointer is set to `NULL` or the memory location it was pointing to is freed.
 - It is easier when pointer declarations are read backward.
+- A `NULL` pointer does not point to any valid memory location
+  - `NULL` is usually define as a macro... `#define ((void *) 0)`
+- A `NULL` pointer and an **uninitialized** pointer are different
+  - An **uninitialized pointer** points to a valid memory location, and has some garbage value
+	- Dereferencing it will output an some unexpected value.
+  - A `NULL` pointer does not reference any location in memory.
+	- Deferencing it will cause a **segmentation fault**
 
 
 # Code snippets
@@ -26,3 +33,4 @@
 2. [Initializing Pointer Variables](0x01-initializing_pointers.c)
 3. [Displaying Pointer Values](0x02-displaying_pointer_values.c)
 4. [Dereferencing Pointer Variables](0x03-dereferencing_pointers.c)
+5. [Null Pointers vs Uninitialized Pointers](0x04-null_pointers.c)
