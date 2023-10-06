@@ -19,6 +19,7 @@ double postfix(char *s)
 		fprintf(stderr, "No expressions received");
 		return (-1);
 	}
+
 	for (i = 0; i < len; i++)
 	{
 		if (isdigit(s[i]))

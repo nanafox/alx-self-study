@@ -22,6 +22,9 @@ Node *new_frame(void)
 {
 	Node *frame = malloc(sizeof(Node));
 
+	if (frame == NULL)
+		return (NULL); /* memory allocation failed */
+
 	return (frame);
 }
 
@@ -56,6 +59,8 @@ void push(Node **stack, int data)
 {
 	Node *frame = new_frame();
 
+	if (frame == NULL)
+		exit(push_fail); /* push operation failed - memory allocation failed */
 	frame->data = data;
 	frame->next = *stack;
 	*stack = frame;

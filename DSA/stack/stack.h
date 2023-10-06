@@ -3,6 +3,8 @@
 
 #include "node.h"
 #include <malloc.h>
+#include <stdio.h>
+#define push_faul 12
 #define empty_stack -911
 
 Node *_stack(void);
