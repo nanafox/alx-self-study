@@ -37,7 +37,7 @@ int main(void)
  * (efficient)
  * @n: the number to find right most bit of
  *
- * Return: the index (starting from) of right-most set bit in @n,
+ * Return: the index (starting from zero) of right-most set bit in @n,
  * else -1 if @n is 0 (zero)
  */
 int right_most_bit_efficient(unsigned long int n)

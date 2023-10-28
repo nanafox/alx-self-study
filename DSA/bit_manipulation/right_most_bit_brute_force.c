@@ -37,7 +37,7 @@ int main(void)
  * (inefficient)
  * @n: the number to find right most bit of
  *
- * Return: the index (starting from) of right-most set bit in @n,
+ * Return: the index (starting from 0) of right-most set bit in @n,
  * else -1 if @n is 0 (zero)
  */
 int right_most_bit_brute_force(unsigned long int n)
