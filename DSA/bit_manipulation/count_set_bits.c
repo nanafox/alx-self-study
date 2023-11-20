@@ -43,7 +43,7 @@ int count_set_bits(unsigned long int n)
 
 	while (n > 0)
 	{
-		n &= n -1;
+		n &= n - 1;
 		count++;
 	}
 
