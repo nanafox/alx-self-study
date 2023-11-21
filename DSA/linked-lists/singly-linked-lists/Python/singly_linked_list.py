@@ -6,7 +6,7 @@ class SinglyLinkedList:
         self.tail = None
         self.head = None
         self.size = 0  # size is updated through insertion/deletion
-    
+
     def __len__(self):
         """
         gets the size of a linked list
