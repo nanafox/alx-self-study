@@ -8,6 +8,7 @@
 int main(void)
 {
 	list *my_list = init(NULL);
+	int data;
 
 	insert(my_list, 0, 45);
 	insert(my_list, -1, 23);
@@ -18,6 +19,17 @@ int main(void)
 	printf("All items\n");
 	print_list(my_list);
 	printf("Size: %ld\n", len(my_list));
+
+	data = pop(my_list);
+	printf("Removed: [%d]\n", data);
+	print_list(my_list);
+	printf("first number: %d\n", first(my_list));
+	printf("last number: %d\n", last(my_list));
+
+	clear(my_list);
+	my_list = NULL;
+	append(my_list, 45);
+	print_list(my_list);
 
 	return (0);
 }
