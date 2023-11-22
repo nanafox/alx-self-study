@@ -6,17 +6,60 @@
  */
 void print_list(list *user_list)
 {
-	node *current = user_list->head;
+	node *current;
 
-	if (current == NULL)
+	if (user_list == NULL)
+	{
+		printf("List not initialized\n");
+		return;
+	}
+	if (user_list->size == 0)
 	{
 		printf("List is empty\n");
 		return;
 	}
 
+	current = user_list->head;
 	while (current != NULL)
 	{
 		printf("%d\n", current->data);
 		current = current->next;
 	}
+}
+
+/**
+ * clear - clears the list
+ * @user_list: the list to clear
+ */
+void clear(list *user_list)
+{
+	node *current;
+
+	if (user_list == NULL)
+	{
+		printf("List not initialized\n");
+		return;
+	}
+	if (user_list->size == 0)
+	{
+		printf("List is already empty\n");
+		return;
+	}
+
+	while (user_list->head != NULL)
+	{
+		current = user_list->head;
+		user_list->head = user_list->head->next;
+
+		free(current);
+		current = NULL;
+		user_list->size--;
+	}
+
+	user_list->head = NULL;
+	user_list->tail = NULL;
+	user_list->size = 0;
+	user_list->cleanup = NULL;
+
+	free(user_list);
 }
