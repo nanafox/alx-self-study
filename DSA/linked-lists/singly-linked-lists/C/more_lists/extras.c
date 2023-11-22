@@ -51,7 +51,7 @@ void clear(list *user_list)
 		current = user_list->head;
 		user_list->head = user_list->head->next;
 
-		free(current);
+		user_list->cleanup((void **)&current);
 		current = NULL;
 		user_list->size--;
 	}
@@ -61,5 +61,18 @@ void clear(list *user_list)
 	user_list->size = 0;
 	user_list->cleanup = NULL;
 
-	free(user_list);
+	_free((void **)&user_list);
+}
+
+/**
+ * _free - frees dynamic memory
+ * @ptr: a pointer to the memory location that needs to be freed
+ */
+void _free(void **ptr)
+{
+	if (*ptr != NULL && ptr != NULL)
+	{
+		free(*ptr);
+		*ptr = NULL;
+	}
 }

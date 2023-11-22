@@ -32,6 +32,7 @@ typedef struct list_
 
 /* public interfaces */
 
+void _free(void **ptr);
 int pop(list *user_list);
 void clear(list *user_list);
 void reverse(list *user_list);

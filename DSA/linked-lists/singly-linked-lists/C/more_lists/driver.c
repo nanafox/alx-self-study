@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	list *my_list = init(NULL);
+	list *my_list = init(_free);
 	int data;
 
 	insert(my_list, 0, 45);
