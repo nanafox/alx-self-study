@@ -33,8 +33,15 @@ list *init(void (*cleanup)(void **))
  */
 void append(list *user_list, const int data)
 {
-	node *element = malloc(sizeof(node));
+	node *element;
 
+	if (user_list == NULL)
+	{
+		fprintf(stderr, "Insertion failed! The List is not initialized!\n");
+		return;
+	}
+
+	element = malloc(sizeof(node));
 	if (element == NULL)
 	{
 		fprintf(stderr, "Memory allocation failed for new node\n");
