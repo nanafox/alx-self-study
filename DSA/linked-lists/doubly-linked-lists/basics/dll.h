@@ -1,6 +1,7 @@
 #ifndef DLL_H
 #define DLL_H
 
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -39,5 +40,8 @@ int insert(dll_t *list, ssize_t index, const int data);
 int pop(dll_t *list);
 int rm(dll_t *list, const int data);
 void _free(void **);
+int check_err(void *ptr, char ptr_type);
+void print_list(dll_t *list);
+void clear(dll_t *list);
 
 #endif /* DLL_H */
