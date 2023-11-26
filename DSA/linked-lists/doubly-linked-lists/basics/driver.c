@@ -18,11 +18,20 @@ int main(void)
 			break;
 		}
 	}
+	/* print current list */
+	print_list(my_list);
 
+	/* insert some more */
 	insert(my_list, 1, 4521);
 	insert(my_list, 4, 1);
-	insert(my_list, 8, 9);
+	insert(my_list, -3, 78);
+	append(my_list, 100);
+	insert(my_list, -4, 500);
+
+	/* print the updated list */
 	print_list(my_list);
+
+	/* we are done, clean up please */
 	clear(my_list);
 
 	return (0);
