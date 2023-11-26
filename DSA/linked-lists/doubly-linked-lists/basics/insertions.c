@@ -93,7 +93,7 @@ int insert(dll_t *list, ssize_t index, const int data)
 		return (-1); /* memory allocation failed */
 
 	element->data = data;
-	pos = (index < 0) ? index - list->size : (size_t)index;
+	pos = (index < 0) ? list->size + index : (size_t)index;
 	if (pos == 0)
 	{
 		element->next = list->head;
@@ -104,16 +104,16 @@ int insert(dll_t *list, ssize_t index, const int data)
 	{
 		c_pos = 0;
 		current = list->head;
-		while (current->next != NULL && c_pos < pos)
+		while (current->next != NULL && c_pos < (pos - 1))
 		{
 			current = current->next;
 			c_pos++;
 		}
-		element->next = current;
-		element->prev = current->prev;
-		current->prev->next = element;
-		current->prev = element;
 
+		element->next = current->next;
+		element->prev = current;
+		current->next = element;
+		current->next->prev = element;
 		if (element->next != NULL)
 			element->next->prev = element;
 	}
