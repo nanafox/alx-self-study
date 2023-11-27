@@ -18,7 +18,9 @@ int main(void)
 			break;
 		}
 	}
+
 	/* print current list */
+	puts("List content\n");
 	print_list(my_list);
 
 	/* insert some more */
@@ -29,6 +31,15 @@ int main(void)
 	insert(my_list, -4, 500);
 
 	/* print the updated list */
+	puts("\nAfter insertion\n");
+	print_list(my_list);
+
+	puts("\nAfter pop operation\n");
+	printf("Element [%d] was popped from the list\n", pop(my_list));
+	print_list(my_list);
+
+	puts("\nRemoving data\n");
+	rm(my_list, 5);
 	print_list(my_list);
 
 	/* we are done, clean up please */
