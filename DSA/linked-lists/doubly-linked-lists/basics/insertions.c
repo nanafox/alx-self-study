@@ -97,7 +97,9 @@ int insert(dll_t *list, ssize_t index, const int data)
 	if (pos == 0)
 	{
 		element->next = list->head;
-		list->head->prev = element;
+		element->prev = NULL;
+		if (list->head->next != NULL)
+			list->head->prev = element;
 		list->head = element;
 	}
 	else
@@ -109,11 +111,9 @@ int insert(dll_t *list, ssize_t index, const int data)
 			current = current->next;
 			c_pos++;
 		}
-
 		element->next = current->next;
 		element->prev = current;
 		current->next = element;
-		current->next->prev = element;
 		if (element->next != NULL)
 			element->next->prev = element;
 	}
