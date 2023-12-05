@@ -13,8 +13,8 @@ int main(void)
 	puts("Insertions");
 	insert(my_list, 0, 45);
 	insert(my_list, -1, 23);
-	insert(my_list, 0, 81);
-	insert(my_list, 1, 67);
+	insert(my_list, 1, 81);
+	insert(my_list, -2, 67);
 
 	puts("\nElements");
 	printf("first number: %d\n", first(my_list));

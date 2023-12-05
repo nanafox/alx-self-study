@@ -95,7 +95,7 @@ void insert(list *user_list, ssize_t index, const int data)
 		return;
 	}
 	/* get the actual index to insert at and account for negative indexes*/
-	pos = (size_t)(index < 0) ? index - user_list->size : (size_t)index;
+	pos = (size_t)(index < 0) ? index + user_list->size : (size_t)index;
 	if (pos == 0)
 	{
 		element->next = user_list->head;
