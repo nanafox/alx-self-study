@@ -77,4 +77,3 @@ int rm(list *user_list, const int data)
 
 	return (-1);
 }
-
