@@ -1,14 +1,10 @@
 *
 !/**/
 
-.vscode/
-.idea/
-__*
-.*/
-
 !*.h
 !*.c
 !*.py
+!*.ipynb
 !*.html
 !*.png
 !*.jpg
@@ -17,7 +13,6 @@ __*
 !*.html
 !*.css
 !requirements.txt
-!__init__.py
 !Makefile
 !*.md
 !.gitignore
