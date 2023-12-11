@@ -1,4 +1,5 @@
 #include "main.h"
+
 /*The lower and upper case letters are 32 numbers apart.*/
 #define low_upper_interval 32
 
@@ -13,8 +14,10 @@
  */
 char to_lower(char letter)
 {
-	if (letter >= 'A' && letter < 'Z')
+	if (letter >= 'A' && letter <= 'Z')
 		return (letter + low_upper_interval);
+
+	return (letter);
 }
 
 /**
@@ -22,11 +25,24 @@ char to_lower(char letter)
  *
  * @string: string to check
  *
- * Return: 1 if lower case, else 0.
+ * Return: 1 if lower case, else 0. On error (empty string or NULL),
+ * -1 is return
  */
 int is_lower(char *string)
 {
-	/*TODO*/
+	int i;
+
+	if (string == NULL || *string == '\0')
+		return (-1);
+
+	for (i = 0; string[i] != '\0'; i++)
+	{
+		if ((string[i] >= 'a' && string[i] <= 'z') || string[i] == ' ')
+			continue;
+		else
+			return (0);
+	}
+	return (1);
 }
 
 /**
@@ -37,24 +53,24 @@ int is_lower(char *string)
  */
 char to_upper(char letter)
 {
-	if (letter >= 'a' && letter < 'z')
+	if (letter >= 'a' && letter <= 'z')
 		return (letter - low_upper_interval);
+
+	return (letter);
 }
 
 /**
  * to_title - Convert string to Title Case
- *
  * @string: text to convert
- *
- * Note: It modifies the original string's value.
  *
  * Return: title case string.
 */
 char *to_title(char *string)
 {
 	char *dup_str = strdup(string);
+	int i;
 
-	for (int i = 0; dup_str[i] != '\0'; i++)
+	for (i = 0; dup_str[i] != '\0'; i++)
 	{
 		if (i == 0)
 			/*capitalize the first letter in the string*/
@@ -72,6 +88,13 @@ char *to_title(char *string)
 	return (dup_str);
 }
 
+/**
+ * add - returns the sum of two numbers
+ * @x: first number
+ * @y: second number
+ *
+ * Return: the sum of x and y
+ */
 int add(int x, int y)
 {
 	return (x + y);
