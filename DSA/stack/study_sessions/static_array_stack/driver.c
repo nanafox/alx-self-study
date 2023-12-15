@@ -8,7 +8,7 @@
  */
 int main(void)
 {
-	/* let's create aa array stack */
+	/* let's create an array stack */
 	array_stack_t *my_stack = create_stack(SIZE);
 
 	puts("\n==== Insertions ====\n");
@@ -18,6 +18,7 @@ int main(void)
 	push(my_stack, 12);
 
 	print_stack(my_stack);
+	printf("Top of stack: [%d]\n", top(my_stack));
 
 	puts("\n==== Deletions ====\n");
 
@@ -27,6 +28,7 @@ int main(void)
 	puts("\n==== Stack After Deletions ====\n");
 
 	print_stack(my_stack);
+	printf("Top of stack: [%d]\n", top(my_stack));
 
 	delete_stack(my_stack);
 

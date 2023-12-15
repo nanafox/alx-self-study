@@ -17,7 +17,7 @@ typedef struct array_stack_s
 	int *array;
 } array_stack_t;
 
-/* functions */
+/* stack operations and auxiliary functions */
 
 int pop(array_stack_t *stack);
 void print_stack(array_stack_t *stack);
@@ -30,6 +30,6 @@ array_stack_t *create_stack(int capacity);
 
 #define is_empty(stack) ((stack)->top <= 0)
 #define is_full(stack) ((stack)->top == ((stack)->capacity - 1))
-#define top(stack) ((stack)->top)
+#define top(stack) ((stack)->array[stack->top])
 
 #endif
