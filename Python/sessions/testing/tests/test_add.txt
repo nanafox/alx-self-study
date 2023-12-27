@@ -1,0 +1,13 @@
+>>> from add import add
+>>> add(9, 5)
+14
+>>> add(10, 23)
+33
+>>> add(4.3, 90)
+Traceback (most recent call last):
+...
+TypeError: operands must be an integer
+>>> add("Hello", 7734)
+Traceback (most recent call last):
+...
+TypeError: operands must be an integer
