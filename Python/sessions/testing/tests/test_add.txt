@@ -1,8 +1,16 @@
->>> from add import add
+# Let's get everything sorted out first
+>>> import sys
+>>> import os
+>>> sys.path.append(os.path.dirname(os.path.abspath('../src')))
+>>> from src.add import add
+
+# Correct values and correct outputs
 >>> add(9, 5)
 14
 >>> add(10, 23)
 33
+
+# When errors occur
 >>> add(4.3, 90)
 Traceback (most recent call last):
 ...
