@@ -19,3 +19,11 @@ TypeError: operands must be an integer
 Traceback (most recent call last):
 ...
 TypeError: operands must be an integer
+
+Well this error is not particular to our function, but let's test for
+NameErrors
+
+>>> add(5.3, Something)
+Traceback (most recent call last):
+    ...
+NameError: name 'Something' is not defined
