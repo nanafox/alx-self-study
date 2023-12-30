@@ -57,7 +57,7 @@ class Person:
         if not isinstance(fullname, str):
             raise ValueError("name must be a string")
 
-        if fullname == "" or fullname.strip() == "":
+        if fullname.strip() == "":
             raise ValueError("name cannot be empty")
 
         self.__name = fullname.strip()
@@ -120,7 +120,7 @@ class Person:
         if not isinstance(new_first_name, str):
             raise ValueError("first name must be a string")
 
-        if new_first_name == "" or new_first_name.strip() == "":
+        if new_first_name.strip() == "":
             raise ValueError("first name cannot be empty")
 
         # replace the first name, this essentially updates the name attribute
@@ -151,7 +151,7 @@ class Person:
         if not isinstance(new_last_name, str):
             raise ValueError("last name must be a string")
 
-        if new_last_name == "" or new_last_name.strip() == "":
+        if new_last_name.strip() == "":
             raise ValueError("last name cannot be empty")
 
         self.name = self.name.replace(self.last_name, new_last_name)
