@@ -95,6 +95,21 @@ class Person:
             f"Annual salary: ${self.pay:,.2f}"
         )
 
+    def __repr__(self) -> str:
+        """
+        Returns information about an instance for developers.
+
+        Returns:
+            str: Enough information about the instance for developers.
+        """
+        return (
+            "\n*** Instance information... ***\n"
+            "<{:s}.Person object at 0x{:x}>\n"
+            "{{'name': {:s}, 'job': {:s}, 'pay': {:.2f}}}".format(
+                self.__module__, self.__hash__(), self.name, self.job, self.pay
+            )
+        )
+
     @property
     def first_name(self) -> str:
         """
