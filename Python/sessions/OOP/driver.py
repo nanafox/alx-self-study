@@ -18,3 +18,9 @@ person_2.first_name = "Lina"
 person_2.last_name = "Banks"
 print()
 print(person_2)
+
+print()
+try:
+    person_3 = Person("     ")
+except Exception as err:
+    print(err)
