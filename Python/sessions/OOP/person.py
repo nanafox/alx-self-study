@@ -170,3 +170,78 @@ class Person:
             raise ValueError("last name cannot be empty")
 
         self.name = self.name.replace(self.last_name, new_last_name)
+
+
+class Employee(Person):
+    def __init__(
+        self,
+        name: str,
+        job: str = None,
+        pay: float | int = 0,
+        dept: str = None,
+    ) -> None:
+        """
+        Instantiates an Employee object
+
+        Args:
+            Args:
+            name (str): The name of the person.
+            job (str, optional): The job the person does. Defaults to None.
+            pay (float | int, optional): The salary of the person.
+            Defaults to 0.0.
+            dept (str, optional): The employee's department. Defaults to None.
+        """
+        super().__init__(name, job, pay)
+        self.dept = dept
+
+    @property
+    def dept(self) -> str:
+        """
+        Returns the value of the employee's department.
+
+        Returns:
+            str: The employee's department.
+        """
+        return self.__dept
+
+    @dept.setter
+    def dept(self, emp_dept: str) -> None:
+        """
+        Sets or updates the value of an employee's department.
+
+        Args:
+            emp_dept (str): The employee's department.
+
+        Raises:
+            ValueError: When the value of the department is not a string or
+            an empty string.
+        """
+        if not isinstance(emp_dept, str):
+            raise ValueError("the department should be a string")
+
+        if emp_dept.strip() == "":
+            raise ValueError("department name cannot be empty")
+
+        self.__dept = emp_dept
+
+    def __str__(self) -> str:
+        """
+        Overrides the __str__() method so it fits the use for an employee.
+
+        Returns:
+            str: The updated string for the employee.
+        """
+        return f"{super().__str__()}\nDept: {self.dept}"
+
+    def __repr__(self) -> str:
+        """
+        Provides debug-worthy information for developers about an employee.
+
+        Returns:
+            str: Information about an employee.
+        """
+        return f"{super().__repr__()[:-1]}, 'dept': {self.dept}}}"
+
+
+class Manager(Employee):
+    pass
