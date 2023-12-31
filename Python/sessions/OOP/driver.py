@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from person import Person
+from person import Employee, Person
 
 
 # create two instances from the person class
@@ -32,3 +32,9 @@ except Exception as err:
 
 # print debug-worthy information about the instance
 print(person_1.__repr__())
+
+# let's work with the Employee class
+print()
+emp_1 = Employee("Maxwell", "Systems Support", 150_000, "IT")
+print(emp_1)
+print(emp_1.__repr__())
