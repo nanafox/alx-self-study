@@ -184,7 +184,6 @@ class Employee(Person):
         Instantiates an Employee object
 
         Args:
-            Args:
             name (str): The name of the person.
             job (str, optional): The job the person does. Defaults to None.
             pay (float | int, optional): The salary of the person.
