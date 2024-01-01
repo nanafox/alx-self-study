@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
-from person import Employee, Person
+from re import M
+from person import Employee, Manager, Person
 
 
 # create two instances from the person class
@@ -35,6 +36,17 @@ print(person_1.__repr__())
 
 # let's work with the Employee class
 print()
-emp_1 = Employee("Maxwell", "Systems Support", 150_000, "IT")
+emp_1 = Employee("Randy Olsen", "Systems Support", 150_000, "Network/Systems")
 print(emp_1)
 print(emp_1.__repr__())
+
+emp_2 = Employee("Clark Kent", "DevOps Engineer", 108_000, "DevOps")
+print()
+
+# Manager class
+mgr_1 = Manager("Bill Doors", 200_0000, (emp_1, emp_2))
+print(mgr_1)
+
+mgr_1.team()
+
+print(mgr_1.__repr__())
