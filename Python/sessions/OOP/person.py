@@ -3,6 +3,9 @@
 """A module for modelling a real world person"""
 
 
+from typing import Iterable
+
+
 class Person:
     """A blueprint for a person in real life"""
 
@@ -104,9 +107,13 @@ class Person:
         """
         return (
             "\n*** Instance information... ***\n"
-            "<{:s}.Person object at 0x{:x}>\n"
+            "<{:s} object at 0x{:x}>\n"
             "{{'name': {:s}, 'job': {:s}, 'pay': {:.2f}}}".format(
-                self.__module__, self.__hash__(), self.name, self.job, self.pay
+                str(type(self))[7:-1],  # grab the namespace of the object
+                self.__hash__(),  # get the address of the object
+                self.name,  # the name of the employee
+                self.job,  # the job they do
+                self.pay,  # their annual salary
             )
         )
 
@@ -243,4 +250,40 @@ class Employee(Person):
 
 
 class Manager(Employee):
-    pass
+    def __init__(
+        self, name: str, pay: float | int = 0, emps_managed: list = None
+    ) -> None:
+        """
+        Creates a new Manager object.
+
+        Args:
+            name (str): The name of the Manager.
+            pay (float | int, optional): The manager's salary. Defaults to 0.
+            emps_managed (list): A list of employees managed by this manager.
+        """
+        super().__init__(name, "Manager", pay, "Managers")
+        self.employees_managed = emps_managed
+
+    def __str__(self) -> str:
+        return "{:s}\nManages: \n\t{:s}".format(
+            super().__str__(),
+            "\n\t".join(member.name for member in self.__team_members()),
+        )
+
+    def __team_members(self):
+        """
+        Generates an iterable of the team members a manager manages
+
+        Yields:
+            Employee | Manager: Objects of the employees or managers a
+            particular manager manages
+        """
+        for emp in self.employees_managed:
+            yield emp
+
+    def team(self) -> None:
+        """
+        Prints the information about the employees managed by this manager
+        """
+        for i, emp in enumerate(self.__team_members(), start=1):
+            print(f"{i}.\n{emp}\n")
