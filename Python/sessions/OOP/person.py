@@ -107,9 +107,10 @@ class Person:
         """
         return (
             "\n*** Instance information... ***\n"
-            "<{:s} object at 0x{:x}>\n"
+            "<{:s}.{:s} object at 0x{:x}>\n"
             "{{'name': {:s}, 'job': {:s}, 'pay': {:.2f}}}".format(
-                str(type(self))[7:-1],  # grab the namespace of the object
+                self.__module__,  # get the name of the module
+                self.__class__.__name__,  # grab the namespace of the object
                 self.__hash__(),  # get the address of the object
                 self.name,  # the name of the employee
                 self.job,  # the job they do
