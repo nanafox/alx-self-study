@@ -105,16 +105,24 @@ class Person:
         Returns:
             str: Enough information about the instance for developers.
         """
+        info = ""
+        for k, v in self.__dict__.items():
+            info += f"{k}: "
+            if isinstance(v, tuple):
+                info += "\n{"
+                for obj in v:
+                    info += f"{obj.__repr__()}"
+                info += "}"
+            else:
+                info += f"{v}\n"
+
         return (
             "\n*** Instance information... ***\n"
-            "<{:s}.{:s} object at 0x{:x}>\n"
-            "{{'name': {:s}, 'job': {:s}, 'pay': {:.2f}}}".format(
+            "<{:s}.{:s} object at 0x{:x}>\n{:s}".format(
                 self.__module__,  # get the name of the module
                 self.__class__.__name__,  # grab the namespace of the object
                 self.__hash__(),  # get the address of the object
-                self.name,  # the name of the employee
-                self.job,  # the job they do
-                self.pay,  # their annual salary
+                info
             )
         )
 
@@ -239,15 +247,6 @@ class Employee(Person):
             str: The updated string for the employee.
         """
         return f"{super().__str__()}\nDept: {self.dept}"
-
-    def __repr__(self) -> str:
-        """
-        Provides debug-worthy information for developers about an employee.
-
-        Returns:
-            str: Information about an employee.
-        """
-        return f"{super().__repr__()[:-1]}, 'dept': {self.dept}}}"
 
 
 class Manager(Employee):
