@@ -105,16 +105,16 @@ class Person:
         Returns:
             str: Enough information about the instance for developers.
         """
-        info = ""
-        for k, v in self.__dict__.items():
-            info += f"{k}: "
-            if isinstance(v, tuple):
-                info += "\n{"
-                for obj in v:
-                    info += f"{obj.__repr__()}"
-                info += "}"
+        instance_info = ""
+        for key in self.__dict__:
+            instance_info += f"{key}: "
+            if isinstance(getattr(self, key), tuple):
+                instance_info += "\n{"
+                for obj in getattr(self, key):
+                    instance_info += f"{obj.__repr__()}"
+                instance_info += "}"
             else:
-                info += f"{v}\n"
+                instance_info += f"{getattr(self, key, 'N/A')}\n"
 
         return (
             "\n*** Instance information... ***\n"
@@ -122,7 +122,7 @@ class Person:
                 self.__module__,  # get the name of the module
                 self.__class__.__name__,  # grab the namespace of the object
                 self.__hash__(),  # get the address of the object
-                info
+                instance_info,
             )
         )
 
@@ -265,6 +265,13 @@ class Manager(Employee):
         self.employees_managed = emps_managed
 
     def __str__(self) -> str:
+        """
+        Returns a user-friendly information about a manager. This information
+        includes the names of the people a particular manager manages.
+
+        Returns:
+            str: The user-friendly information about a Manager instance object.
+        """
         return "{:s}\nManages: \n\t{:s}".format(
             super().__str__(),
             "\n\t".join(member.name for member in self.__team_members()),
