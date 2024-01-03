@@ -251,7 +251,7 @@ class Employee(Person):
 
 class Manager(Employee):
     def __init__(
-        self, name: str, pay: float | int = 0, emps_managed: list = None
+        self, name: str, pay: float | int = 0, emps_managed: tuple = None
     ) -> None:
         """
         Creates a new Manager object.
@@ -285,8 +285,9 @@ class Manager(Employee):
             Employee | Manager: Objects of the employees or managers a
             particular manager manages
         """
-        for emp in self.employees_managed:
-            yield emp
+        if self.employees_managed:
+            for emp in self.employees_managed:
+                yield emp
 
     def team(self) -> None:
         """
