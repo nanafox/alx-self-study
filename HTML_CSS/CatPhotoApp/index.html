@@ -6,75 +6,124 @@
         <title>CatPhotoApp</title>
     </head>
     <body>
-        <h1>CatPhotoApp</h1>
-        <h2>Cat Photos</h2>
-        <p>
-            See more <a href="#" title="cat photos">cat photos</a> in our
-            gallery.
-        </p>
-        <img
-            src="images/relaxing-cat.jpg"
-            alt="an image of a relaxed cat"
-            title="Relaxed cat"
-        />
+        <main>
+            <h1>CatPhotoApp</h1>
 
-        <!-- Make a list of cat attributes -->
-        <h2>Cat Lists</h2>
-        <h3>Things cats love:</h3>
-        <ul>
-            <li>cat nip</li>
-            <li>laser pointers</li>
-            <li>lasagna</li>
-        </ul>
-        <figure>
-            <img
-                src="images/lasagna.jpg"
-                alt="an image of a delicious lasagna"
-                title="Lasagna"
-            />
-            <figcaption>Cats <em>love</em> lasagna</figcaption>
-        </figure>
+            <section>
+                <h2>Cat Photos</h2>
+                <p>
+                    See more <a href="#" title="cat photos">cat photos</a> in
+                    our gallery.
+                </p>
+                <a href="#" target="_blank">
+                    <img
+                        src="images/relaxing-cat.jpg"
+                        alt="A cute orange cat lying on its back, feeling relaxed"
+                        title="A cute orange cat lying on its back, feeling relaxed"
+                    />
+                </a>
+            </section>
 
-        <!-- Mentions 3 things cats hate -->
-        <h2>Top 3 things cats hate:</h2>
-        <ol>
-            <li>flea treatment</li>
-            <li>thunder</li>
-            <li>other cats</li>
-        </ol>
-        <figure>
-            <img
-                src="images/cats.jpg"
-                alt="an image of angry cats"
-                title="A bunch of angry cats"
-            />
-            <figcaption>Cats <strong>hate</strong> other cats.</figcaption>
-        </figure>
+            <!-- Make a list of cat attributes -->
+            <section>
+                <h2>Cat Lists</h2>
+                <h3>Things cats love:</h3>
+                <ul>
+                    <li>cat nip</li>
+                    <li>laser pointers</li>
+                    <li>lasagna</li>
+                </ul>
+                <figure>
+                    <img
+                        src="images/lasagna.jpg"
+                        alt="an image of a delicious lasagna"
+                        title="Lasagna"
+                    />
+                    <figcaption>Cats <em>love</em> lasagna</figcaption>
+                </figure>
 
-        <!-- Creates a form to collect information about cats -->
-        <h2>Cat Form</h2>
-        <form action="#">
-            <fieldset>
-                <legend>Is your cat an indoor or outdoor cat?</legend>
-                <input type="radio" name="cat-type" />
-                <label for="indoor">Indoor</label>
-                <input type="radio" name="cat-type" />
-                <label for="outdoor">Outdoor</label>
-            </fieldset>
+                <!-- Mentions 3 things cats hate -->
+                <h3>Top 3 things cats hate:</h3>
+                <ol>
+                    <li>flea treatment</li>
+                    <li>thunder</li>
+                    <li>other cats</li>
+                </ol>
+                <figure>
+                    <img
+                        src="images/cats.jpg"
+                        alt="an image of angry cats"
+                        title="A bunch of angry cats"
+                    />
+                    <figcaption>
+                        Cats <strong>hate</strong> other cats.
+                    </figcaption>
+                </figure>
+            </section>
 
-            <fieldset>
-                <legend>What is your cat's personality?</legend>
-                <input type="checkbox" checked name="personality" />
-                <label for="loving">Loving</label>
-                <input type="checkbox" name="personality" />
-                <label for="lazy">Lazy</label>
-                <input type="checkbox" name="personality" />
-                <label for="energetic">Energetic</label>
-            </fieldset>
-            <input type="text" placeholder="cat photo URL" />
-            <input type="Submit" />
-        </form>
+            <!-- Creates a form to collect information about cats -->
+            <section>
+                <h2>Cat Form</h2>
+                <form action="#">
+                    <fieldset>
+                        <legend>Is your cat an indoor or outdoor cat?</legend>
+                        <label for="indoor">
+                            <input
+                                type="radio"
+                                name="indoor-outdoor"
+                                id="indoor"
+                                value="indoor"
+                                checked
+                            />
+                            Indoor</label
+                        >
+                        <label for="outdoor">
+                            <input
+                                type="radio"
+                                name="indoor-outdoor"
+                                id="outdoor"
+                                value="outdoor"
+                            />
+                            Outdoor</label
+                        >
+                    </fieldset>
 
+                    <fieldset>
+                        <legend>What is your cat's personality?</legend>
+                        <input
+                            type="checkbox"
+                            name="personality"
+                            value="loving"
+                            id="loving"
+                            checked
+                        />
+                        <label for="loving">Loving</label>
+                        <input
+                            type="checkbox"
+                            name="personality"
+                            value="lazy"
+                            id="lazy"
+                        />
+                        <label for="lazy">Lazy</label>
+                        <input
+                            type="checkbox"
+                            name="personality"
+                            value="energetic"
+                            id="energetic"
+                        />
+                        <label for="energetic">Energetic</label>
+                    </fieldset>
+                    <!-- Get the URL to the Cat's photo. This is required. -->
+                    <input
+                        type="text"
+                        placeholder="cat photo URL"
+                        name="catphotourl"
+                        required
+                    />
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+        </main>
         <!-- footer -->
         <footer>
             <p>
