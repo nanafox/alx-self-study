@@ -3,9 +3,6 @@
 """A module for modelling a real world person"""
 
 
-from typing import Iterable
-
-
 class Person:
     """A blueprint for a person in real life"""
 
@@ -251,7 +248,7 @@ class Employee(Person):
 
 class Manager(Employee):
     def __init__(
-        self, name: str, pay: float | int = 0, emps_managed: tuple = None
+        self, name: str, pay: float | int = 0, emps_managed: list = None
     ) -> None:
         """
         Creates a new Manager object.
