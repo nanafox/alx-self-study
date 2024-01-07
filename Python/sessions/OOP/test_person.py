@@ -98,6 +98,9 @@ class TestEmployee(unittest.TestCase):
             self.emp_1.dept = None
             self.emp_1.dept = ["Accounts", "Finance"]
 
+        # test the updating of the employee's department
+        self.dept = "DevOps"
+        self.assertEqual(self.dept, "DevOps")
 
 if __name__ == "__main__":
     unittest.main()
