@@ -245,6 +245,16 @@ class Employee(Person):
         """
         return f"{super().__str__()}\nDept: {self.dept}"
 
+    def give_raise(self, raise_percentage: "int | float" = 10) -> None:
+        """
+        Raises the salary of an employee by a given percentage.
+
+        Args:
+            raise_percentage (int | float, optional): The percentage.
+            Defaults to 10.
+        """
+        self.pay += self.pay * (raise_percentage / 100)
+
 
 class Manager(Employee):
     def __init__(
