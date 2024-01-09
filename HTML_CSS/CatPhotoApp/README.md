@@ -16,6 +16,7 @@ Comments in HTML are written with `<!-- -->`. This allows you to leave messages 
 - Images are added with the `img` element.
   - It is a *self-closing* tag
   - The `src` attribute is used to locate the where image is stored
+    - The browser looks at this attribute to fine the source location of the image.
   - The `alt` attribute is used to give information about the image
     - It is also useful in screen readers (accessibility)
     - It is displayed when the image fail to load.
