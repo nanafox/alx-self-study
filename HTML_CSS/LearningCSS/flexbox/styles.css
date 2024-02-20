@@ -1,0 +1,41 @@
+.flex-container {
+    background-color: lightblue;
+    padding: 16px;
+    border: 4px solid blue;
+    margin: 8px;
+    display: flex;
+}
+
+.flex-container div {
+    background-color: peachpuff;
+    border: 4px solid brown;
+    height: 62px;
+    /* flex-grow: 1, flex-shrink: 1, flex-basis: 0 */
+    flex: auto;
+    width: 200px;
+    margin: 5px;
+}
+
+.flex-container .two {
+    flex: 2;
+}
+
+.two {
+    display: flex;
+}
+
+.two div {
+    background-color: lightcoral;
+    border: 4px solid red;
+    height: 45px;
+    flex: auto;
+}
+
+/* 
+    - the 'flex-grow' has a default value of zero
+
+    - the 'flex-shrink' is mostly utilized when the size of all the flex items are larger than their parent container.
+
+    - the 'flex-basis' defines the baseline size where shrinking and growing can occur. It'set to auto by default. 
+    Set it to auto if you'd like it to consider the width.
+*/
