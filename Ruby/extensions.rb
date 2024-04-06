@@ -13,8 +13,7 @@ file_extensions = {
 
 print 'Enter the filename: '
 filename = gets.chomp.downcase
-extension = filename.scan(/\.\w+$/)[0] \
-  or raise 'No file extension found'
+extension = filename.scan(/\.\w+$/)[0] or raise 'No file extension found'
 
 puts file_extensions.fetch(
   extension.sub('.', '').to_sym, 'application/octet-stream'
