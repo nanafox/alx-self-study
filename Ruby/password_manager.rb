@@ -40,7 +40,7 @@ until running == false
   when 1 # for a new service
     print 'Enter the name of the service: '
     new_service = gets.chomp.to_sym
-    password_vault[new_service.to_sym] = {}
+    password_vault[new_service] = {}
 
     print 'Please enter the username for this service: '
     new_service_username = gets.chomp
