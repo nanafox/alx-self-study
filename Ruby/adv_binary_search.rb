@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 def binary_search_recursive(array, low, high, value)
-  return -1 if low > high || high >= array.length
+  return -1 if (low > high) || (high >= array.length)
 
   mid = (low + high) / 2
 
