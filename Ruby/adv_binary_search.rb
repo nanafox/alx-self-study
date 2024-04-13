@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 def binary_search_recursive(array, low, high, value)
-  -1 if low > high
+  return -1 if low > high || high >= array.length
 
   mid = (low + high) / 2
 
@@ -16,7 +16,7 @@ def binary_search_recursive(array, low, high, value)
 end
 
 def first_occurrence(array, index, value)
-  first = 0
+  first = index # assume the first occurence is the current index
   index.downto(0) do |i|
     break unless array[i] == value
 
@@ -29,8 +29,10 @@ def advanced_binary(array, value)
   -1 if array.empty?
 
   index = binary_search_recursive(array, 0, array.length - 1, value)
+  return -1 if index == -1 # let's get out of here, we didn't find it
+
   first_occurrence(array, index, value)
 end
 
 arr = [1, 1, 2, 3, 3, 4, 5, 5, 5, 5, 5, 6, 7, 9, 10, 10, 12]
-puts advanced_binary(arr, 5)
+puts advanced_binary(arr, 9)
