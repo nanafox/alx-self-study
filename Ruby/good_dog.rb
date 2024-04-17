@@ -4,11 +4,12 @@
 class GoodDog
   @number_of_dogs = 0
 
+  # accessor methods for class variables
   class << self
     attr_accessor :number_of_dogs
   end
 
-  def self.whomai
+  def self.whoami
     "Hi! I am the #{self} class"
   end
 
@@ -18,7 +19,7 @@ class GoodDog
     self.name = name
     self.height = height
     self.weight = weight
-    self.class.number_of_dogs += 1
+    GoodDog.number_of_dogs += 1
   end
 
   def speak
@@ -26,7 +27,7 @@ class GoodDog
   end
 
   def info
-    "#{name} weighs #{weight} and is #{height} tail"
+    "#{name} weighs #{weight} and is #{height} tail."
   end
 
   alias to_s info
@@ -48,3 +49,5 @@ fido = GoodDog.new('Fido', '12 inches', '10 lbs')
 puts fido
 
 puts GoodDog.number_of_dogs
+
+puts GoodDog.whoami
