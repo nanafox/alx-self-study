@@ -130,9 +130,7 @@ end
 # exist.
 #
 # @param service_name [Symbol] The name of the service.
-# @param service_credentials [Hash, String] The credentials for the service.
-# If it is a hash, it should contain key-value pairs representing the
-# credentials. If it is a string, it will be printed as is.
+# @param service_credentials [Hash] The credentials for the service.
 def print_service_credentials(service_name, service_credentials)
   if service_credentials.empty?
     puts "\n[#{service_name}]: This service doesn't exist."
