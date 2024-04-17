@@ -5,6 +5,11 @@ class MyCar
   attr_accessor :color
   attr_reader :year
 
+  # calculates the gas mileage of any car
+  def self.gas_mileage(gallons, miles)
+    puts "You go #{miles / gallons} miles per gallon of gas"
+  end
+
   def initialize(name:, year:, color:, model:)
     @name = name
     @year = year
@@ -71,3 +76,6 @@ puts lumina
 lumina.spray_paint('red')
 
 puts lumina
+
+# made up miles and gallons
+MyCar.gas_mileage(50, 900)
