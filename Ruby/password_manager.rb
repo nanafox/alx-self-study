@@ -35,7 +35,7 @@ def user_email
     exit 1
   end
 
-  email
+  email.to_s
 end
 
 # Gets the login password for the user from standard input
@@ -126,21 +126,21 @@ end
 # Prints the credentials for a given service.
 #
 # If the service credentials is a hash, it will print each key-value pair
-# in a formatted manner. If the service credentials is not a hash, it will
-# simply print the value which means the service does not exist.
+# in a formatted manner. If the hash is empty, it means the service does not
+# exist.
 #
 # @param service_name [Symbol] The name of the service.
 # @param service_credentials [Hash, String] The credentials for the service.
-#   If it is a hash, it should contain key-value pairs representing the
-#   credentials. If it is a string, it will be printed as is.
+# If it is a hash, it should contain key-value pairs representing the
+# credentials. If it is a string, it will be printed as is.
 def print_service_credentials(service_name, service_credentials)
-  if service_credentials.is_a? Hash
-    puts "Credentials for [#{service_name}]"
+  if service_credentials.empty?
+    puts "\n[#{service_name}]: This service doesn't exist."
+  else
+    puts "\nCredentials for [#{service_name}]"
     service_credentials.each_pair do |key, value|
       puts "\t#{key}: #{value}"
     end
-  else
-    puts service_credentials
   end
 end
 
@@ -149,11 +149,11 @@ end
 # @param service_name [Symbol] The name of the service to get credentials of
 # @param password_vault [Hash] The hash containing all service credentials
 #
-# @return [Hash | nil] A hash containing the requested service's credentials,
-# else nil
+# @return [Hash] A hash containing the requested service's credentials when
+# found, else it returns an empty Hash
 def service_credentials(service_name, password_vault)
   password_vault.fetch(
-    service_name, "\nThis service does not exist"
+    service_name, {}
   )
 end
 
