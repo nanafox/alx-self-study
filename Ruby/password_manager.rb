@@ -155,9 +155,10 @@ def service_credentials(service_name, password_vault)
   )
 end
 
-# sign in use the program
+# sign in to use the program
 sign_in
 
+# keep the program running until the user exits
 loop do
   menu_options
 
